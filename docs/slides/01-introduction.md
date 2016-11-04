@@ -20,19 +20,9 @@
 
 ### Porque aprender Python?
 
-* Fácil de aprender a praticar <!-- Citar algum case nacional -->
+* Fácil de aprender a praticar
 * Fortemente usado no mercado: Google, Facebook(Instagram), Microsoft, Dropbox, Globo.com, etc.
 * Utilizando em várias áreas - web, data science, devops, automação, IA e muito mais.
-
-<!--
-
-* Easy and practical to learn (see [Python is Now the Most Popular Introductory Teaching
-Language at Top U.S. Universities][usage])
-* Industrial strength, used by: Google, Facebook(Instagram), Microsoft, Dropbox, etc.
-* Utilized in many fields - web, data science, ops, automation, AI and much more.
--->
-
-[usage]: http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext
 
 --
 
@@ -60,8 +50,8 @@ Guido's, [king's day speech][speech]
 
 ### Como foi e como o Python é feito?
 
-* Comunidade de [voluntários](core-dev), aka core developres ([você também pode ser um](be-core-dev))
-* Processo transparente através do Python Enhancement Proposals ([PEPs](PEPs))
+* Comunidade de [voluntários][core-dev], aka core developres ([você também pode ser um][be-core-dev])
+* Processo transparente através do Python Enhancement Proposals ([PEPs][PEPs])
 
 [PEPs]: https://www.python.org/dev/peps/
 [core-dev]: https://hg.python.org/committers.txt
@@ -79,9 +69,9 @@ Guido's, [king's day speech][speech]
 * Complexo é melhor do que complicado
 * Legibilidade conta
 
-[Zen of Python completo](zen-of-python)
+[Zen of Python completo][zen-of-python]
 
-[zen-of-python](https://zenorocha.com/licoes-aprendidas-com-o-mundo-python/)
+[zen-of-python]: https://zenorocha.com/licoes-aprendidas-com-o-mundo-python/
 --
 
 ### Java
@@ -156,11 +146,11 @@ Guido's, [king's day speech][speech]
 * Programação assíncrona (`async/await`)
 * Inserção do `virtualenv` na Standard Library
 * Diretório `__pycache__`
-* Argumento com somente palavras-chave ([PEP 3102](PEP-3102))
+* Argumento com somente palavras-chave ([PEP 3102][PEP-3102])
 
 E muito, muito mais, mas vamos voltar nisso depois...
 
-[PEP-3102](https://www.python.org/dev/peps/pep-3102/)
+[PEP-3102]: https://www.python.org/dev/peps/pep-3102/
 
 ---
 ## Ferramentas para codificação
