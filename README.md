@@ -1,29 +1,45 @@
 # Pycubator
 
-Live slides are at [pycubator.com][pyc]
+Esse projeto é uma tradução em português do [pycubator.com](pycubator.com), para ser usado como material para mini-cursos e workshops sobre o básico do Python.
 
-Pycubator (Python Incubator) is a collection of slides and exercises for teaching Python.
-These slides are meant to be used in a teacher-led classroom, but also, put a strong emphasis on student exploration and participation. 
+Ele possui algumas alterações para tornar o conteúdo mais simples possível.
 
-It utilizes [RevealJS][rjs] to create stunning slides, that are actually written in Markdown and hence easy to use with source control, and the exercises uses [Jupyter notebooks][jn] to reduce the amount boilerplate code the students needs to write. 
+## O que é
 
-Pycubator leading principles are:
+Pycubator (Python Incubator) é uma coleção de slides e exercícios para ensinar Python. Esses slides são usados por um instrutor na sala, mas pode ser usado para qualquer tipo de estudo (individual e em grupo).
 
--   Talk less, practice more.
--   Real world examples
+Ele utiliza [RevealJS][rjs] para gerar os slides, e estão escritos atualmente com Markdown, e foi usado o [Jupyter notebooks][jn] para exercícios, assim reduz o amontoado de requisitos mínimos para começar a praticar.
 
-## Running locally
--   Run `python3 build.py` script to generate the HTML files.
--   Run `cd docs && python3 -m http.server` and open your browser!
+Pycubator segue os seguintes princípios:
 
-## Contributing
--   Slides are at `docs/slides/` and are in MD form so it's very easy to edit them.
--   Exercises are Jupyter (IPython) notebooks residing at `docs/exercises`.
--   After making some changes follow [running locally](#running-locally)
+ - Fale menos, pratique mais
+ - Exemplos do mundo real
 
-## Contributors
+## Executando localmente
+ - Execute o scripte da seguinte forma, para gerar os slides em HTML:
+
+```shell
+$ python3 build.py
+```
+
+ - Roda os comandos abaixo para abrir os slides no seu browser:
+ 
+```shell
+$ cd docs && python3 -m http.server
+```
+
+## Contribuição
+ - Os slides estão em `docs/slides` e estão no formato MD, sendo fácil de editar.
+ - Os exercícios são arquivos Jupyter notebook e estão em `docs/exercises`.
+ - Depois de aplicar as mudanças siga as instruções em [executando_localmente](#executando_localmente)
+
+## Quem contribui com a iniciativa
+Versão em inglês
 * [Noam Elfanbaum](https://twitter.com/noamelf)
 * [Udi Oron](https://twitter.com/nonZero)
+
+Versão em português
+* [Gilson Filho](http://gilsondev.in)
 
 ---
 
@@ -33,10 +49,6 @@ Pycubator leading principles are:
 [cc-img]: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
 [cc-site]: http://creativecommons.org/licenses/by-sa/4.0/
 
-[gitter-img]: https://badges.gitter.im/Join%20Chat.svg
-[gitter-site]: https://gitter.im/noamelf/pycubator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-
 [rjs]: https://github.com/hakimel/reveal.js/
 [jn]: http://jupyter.org/
-[pyc]: http://pycubator.com
 
