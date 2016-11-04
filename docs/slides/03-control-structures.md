@@ -1,27 +1,27 @@
 <!-- .slide: data-background="img/puzzles.jpg" -->
-# Control Structures
+# Estruturas de controle
 
 ### Pycubator
 
 --
-### Blocks
+### Blocos
 
--   All control structures (if, while/for, functions) content must be in a block.
--   Block are determined by indentation.
--   The pep8 style guides set 4 spaces to be the standard indentation.
--   If you are using Tab to indent make sure your editor converts it to 4 spaces.
+- Todos os conteúdos das estruturas de controle (if, while/for, funcões) devem ser um bloco.
+- Blocos são determinados por endentação
+- O estilo pep8 orienta definir em 4 espaços para endentação padrão.
+- Se você estiver usando Tab para endentar, tenha certeza que seu editor converta para 4 espaços.
 
         if True:
             print('Yes it is')
 
 ---
 
-# If and While
+# If e While
 
 --
-### Simple if
+### If simples
 
-    x = int(input())  # Remember to use raw_input() in python2
+    x = int(input())  # Lembre de usar raw_input() no Python 2
     if x > 5:
         msg = 'Higher than five'
     elif x == 5:
@@ -31,21 +31,21 @@
     print(msg)
 
 --
-### Ternary operator
+### Operador ternário
 
     x = int(input())
     msg = 'Higher than five' if x > 5 else 'Equel or lower than five'
     print(msg)
 
 --
-### Simple while
+### While simples
 
     while True:
         name = input('Enter your name: ')
         print('Hello {}!'.format(name))
 
 --
-### Break and continue:
+### Break e continue:
 
     SECRET = 'xyzzy'
 
@@ -62,18 +62,18 @@
     print('Welcome!')
 
 --
-###### Exercises
+###### Exercícios
 
-`while` and `if` [exercises](http://lms.10x.org.il/item/12/)
+[Exercício](http://lms.10x.org.il/item/12/) `while` and `if`
 
 ---
 
-# For loops
+# Loop for
 
 --
-### For on a string
+### For com uma string
 
-    # Make Python2 print compatibale with Python3
+    # Defina que print do Python 3 seja compatível no Python 2
     from __future__ import print_function
 
     >>> for c in 'Hello World!':
@@ -81,7 +81,7 @@
     H e l l o   W o r l d !
 
 --
-### Using range()
+### Usando range()
 
     >>> for i in range(10):
             print(i, end=',')
@@ -96,15 +96,15 @@
     10,9,8,7,6,5,4,3,2,1,
 
 --
-### Range definition
+### Definição de Intervalos
 
-*   `range(n)` produces `[0, 1, ..., n-1]`
-*   `range(i, j)` produces `[i, i+1, ..., j-1]`
-*   `range(i, j, k)` produces `[i, i+k, ..., m]`
+*   `range(n)` produz `[0, 1, ..., n-1]`
+*   `range(i, j)` produz `[i, i+1, ..., j-1]`
+*   `range(i, j, k)` produz `[i, i+k, ..., m]`
 
 --
 
-### Nested loops
+### Loops aninhados
 
     for i in range(10):
         for j in range(10):
@@ -128,29 +128,29 @@
     11 !
 
 --
-###### Exercises
-[for loops](http://lms.10x.org.il/item/15/)
+###### Exercícios
+[Loops for](http://lms.10x.org.il/item/15/)
 
 ---
 
-# Functions
+# Funções
 
 --
-### Definition
+### Definição
 
     >>> def increment(x):
             return x + 1
     >>> increment(3)
     4
 
-*   Colon (:) indicates start of a block
-*   Following lines are indented
-*   Function declaration doesnt specify return type
-*   All functions return a value (None if not specified)
-*   Parameter data types are not specified either
+* Dois pontos (:) indica o início de um bloco
+* As linhas seguintes são endentadas
+* Declaração de função não especifica o tipo de retorno
+* Todas as funções retornam um valor (`None` se não for especificado)
+* Tipos de dados parametrizados não são especificados
 
 --
-###### Exercise
+###### Exercício
 
-[Functions](http://lms.10x.org.il/item/145/)
-(Progress bar, 2 exercises)
+[Funções](http://lms.10x.org.il/item/145/)
+(Barra de progresso, 2 exercícios)
