@@ -20,7 +20,7 @@ Pycubator segue os seguintes princípios:
 $ make setup
 ```
 
- - Execute o scripte da seguinte forma, para gerar os slides em HTML:
+ - Execute o script da seguinte forma, para gerar os slides em HTML:
 
 ```shell
 $ make build
