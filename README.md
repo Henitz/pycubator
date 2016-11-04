@@ -31,7 +31,7 @@ $ cd docs && python3 -m http.server
 ## Contribuição
  - Os slides estão em `docs/slides` e estão no formato MD, sendo fácil de editar.
  - Os exercícios são arquivos Jupyter notebook e estão em `docs/exercises`.
- - Depois de aplicar as mudanças siga as instruções em [executando_localmente](#executando_localmente)
+ - Depois de aplicar as mudanças siga as instruções em [Executando localmente](#executando-localmente)
 
 ## Quem contribui com a iniciativa
 Versão em inglês
