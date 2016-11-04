@@ -1,16 +1,16 @@
 <!-- .slide: data-background="img/puzzles.jpg" -->
-# Variables and Simple Data Types
+# Variáveis e Tipos de dados simples
 
 ### Pycubator
 
 ---
 
-# Variables and comparisons
+# Variáveis e comparações
 
 --
-### Assignment
+### Atribuição
 
-Variables in python can hold values. This is done using the assignment operator:
+Variáveis em python pode armazenar valores. Isso é feito usando o operador de atribuição:
 
     >>> a = 100
     >>> a
@@ -22,9 +22,9 @@ Variables in python can hold values. This is done using the assignment operator:
 
 --
 
-### Reassigning
+### Reatribuindo
 
-You can modify the values in any variable by reassigning the value:
+Você pode moficiar o valor de qualquer variável somente reatribuindo o valor:
 
     >>> a = 10
     >>> a
@@ -37,37 +37,36 @@ You can modify the values in any variable by reassigning the value:
     5.5
 
 --
-### Augmented assignment
+### Atribuição aumentada
 
     >>> a = 50
     >>> a += 10
     >>> a
     60
 
--   This is the same as writing: `a = a + 10`
--   Try: `-=`, `*=`, `/=`, `//=`, `%=` and `**=`.
+-   A instrução acima é o mesmo que isso: `a = a + 10`
+-   Tente: `-=`, `*=`, `/=`, `//=`, `%=` e `**=`.
 
 --
-### Naming convention
+### Convenção para nomes
 
-According to Python conventions, variable names should be lowercase with words separated
-by underscores:
+De acordo com as convenções Python, nomes de variáveis deve ser minúsculas com palavras separadas por underlines:
 
-    # Good
+    # Bom
     age = 12
     first_name = "Joe"
     x = 100
 
-    # Bad!
+    # Ruim!
     J = 5.5
     UserName = "itzik"
     numOfRetries = 5
 
 --
 
-### Name errors
+### Erros de nomes
 
--   What happens if you try to get the value of a variable that doesn't exist?
+ - O que acontece se você tentar acessar o valor de uma variável que não existe?
 
         >>> x = 100
         >>> x
@@ -75,16 +74,16 @@ by underscores:
         >>> y
         NameError: name 'y' is not defined
 
--   In a python script, each variable must be assigned before it is accessed:
+- No script Python, cada variável deve ser atribuida antes dela ser acessada:
 
         print(x)  # This line raises NameError
         x = 1
 
 --
-##### advanced
-###  Deleting names
+##### Avançado
+###  Removendo nomes
 
-Variables ("names") can be deleted with del (but I didn't encounter a reason to do that yet):
+Variáveis ("nomes") podem ser removidas com `del`
 
     >>> x = 100
     >>> x
@@ -94,10 +93,10 @@ Variables ("names") can be deleted with del (but I didn't encounter a reason to 
     NameError: name 'x' is not defined
 
 --
-### Comparisons
+### Comparações
 
--   Each data type has a specific behaviour when met with a comparison operator differently
--   We'll see more of that in the next slides but let's checkout some examples now:
+- Cada tipo de dado tem sem comportamento específico quando encontra cada operador de comparação diferente
+- Vamos ver mais no próximo slide, mas vamos verificar algums exemplos agora:
 
         >>> 1 > 2
         True
@@ -109,27 +108,27 @@ Variables ("names") can be deleted with del (but I didn't encounter a reason to 
 
 --
 
-| Operation | Meaning                        |
+| Operação  | Significado                    |
 | --------- | ------------------------------ |
-| `<`       | strictly less than             |
-| `<=`      | less than or equal             |
-| `>`       | strictly greater than          |
-| `>=`      | greater than or equal          |
-| `==`      | equal                          |
-| `!=`      | not equal                      |
-| `is`      | object identity                |
-| `is not`  | negated object identity        |
+| `<`       | estritamente menos que         |
+| `<=`      | menos ou iqual que             |
+| `>`       | estritamente maior que         |
+| `>=`      | maior ou igual que             |
+| `==`      | igual                          |
+| `!=`      | diferente                      |
+| `is`      | identidade do objeto           |
+| `is not`  | não identidade do objeto       |
 
 ---
 
-# Booleans
+# Booleanos
 
 --
 
-### Booleans
+### Booleanos
 
-Python boolean types literals are `True` and `False`.
-Let's run them through an "if" statement:
+Os tipos booleanos literais no Python são `True` e `False`.
+Vamos rodar eles através da declaração `if`:
 
     >>> if True:
             print('Sure is')
@@ -141,60 +140,60 @@ Let's run them through an "if" statement:
 
 --
 
-### Booleans and other types
--   The following act like `False`:
+### Booleanos e outros tipos de dados
+- Os seguintes valores é definido como `False`:
     -   `None`
     -   `0`
-    -   `[]`(or any other empty sequence, strings included)
--   Everything else acts like `True`
+    -   `[]`(ou qualquer outra sequência vazia, string inclusive)
+- Tudo diferente dos anteriores age como um `True`
 
 --
 
-### Boolean operations
+### Operações booleanas
 
-| Operation | Result
+| Operação  | Resultado
 | --------- | ---------------------------------------------
-|`x or y`   | if `x` is `False`, then `y`, else `x`
-|`x and y`  | if `x` is `False`, then `x`, else `y`
-|`not x`    | if `x` is `False`, then `True`, else `False`
+|`x or y`   | SE `x` E `False`, ENTAO `y`, SENAO `x`
+|`x and y`  | SE `x` E `False`, ENTAO `x`, SENAO `y`
+|`not x`    | SE `x` E `False`, ENTAO `True`, SENAO `False`
 
 --
-##### advanced
-### Short circuit
+##### Avançado
+### Curto circuito
 
--   The tables before shows that in Python `and` and `or` are **short-circuit** operators:
+- A tabela anterior mostra que em Python `and` e `or` são operadores **curso circuito**:
 
         >>> 1 or True
         1
         >>> True or 1
         True
 
--   What will be the result of `True and (2 + 2)`?
--   And what about `not 3`?
+-   Qual será o resultado de `True and (2 + 2)`?
+-   E qual será de `not 3`?
 
 ---
 
 # Strings
 <!-- .slide: data-background="img/string.jpg" -->
 --
-### Strings literals
+### Literais de Strings
 
-The following string literals are equivalent:
+Os seguintes literais de strings são equivalentes:
 
     "Hello World!"
     'Hello World!'
     """Hello World!"""
     '''Hello World!'''
 
-Choose the quoting style that fits your needs:
+Escolha o tipo de aspas que precisa:
 
     "It's a very nice day."
     'The sign says "Hello World!".'
 
 --
-### Multi-line strings
+### Strings multi linha
 
-Triple quoting allows multi-line string in your code:
+Aspas triplas habilita o string multi-linha em seu código:
 
     """Shopping List:
     Cheese
@@ -206,30 +205,30 @@ Triple quoting allows multi-line string in your code:
     GHI'''
 
 --
-### String Literal Escape Sequences
+### Sequências de escape
 
-Notable escape sequences in string literals:
+Abaixo segue os as sequências de escape para strings:
 
-*    `\n`: new line
-*    `\t`: tab
-*    `\'` and `\"`: quote and double quote.
-*    `\\`: slash
-*    `\x68`: ASCII char 104 ("68" in hexadecimal is 104 in decimal)
+*    `\n`: nova linha
+*    `\t`: tabulação
+*    `\'` e `\"`: aspas simples e aspas duplas.
+*    `\\`: barra
+*    `\x68`: caracter ASCII 104 ("68" em hexadecimal é 104 em decimal)
 
 --
-### Example
+### Exemplo
 
     "I wrote: \"Hello!\".\nHe wrote: \"Goodbye!\"."
 
--   See [lexical analysis][lex] in Python docs for more information.
+- Veja [análise léxica][lex] na documentação do Python para mais informações.
 
 [lex]: http://docs.python.org/2/reference/lexical_analysis.html#string-literals
 
 --
-##### advanced
-### Raw string literals
+##### Avançado
+### Strings cruas (Raw Strings)
 
-To disable escape sequences, raw string literals can be used:
+Para desabilitar a função de escape, as raw strings podem ser usadas:
 
     >>> print('c:\windows\newstuff\todo')  # OOPS!
     c:\windows
@@ -239,10 +238,10 @@ To disable escape sequences, raw string literals can be used:
 
 ---
 
-# Common String Methods
+# Métodos de string comuns
 
 --
-### Checks
+### Checagem
 *   endswith, startswith
 
         'hello world'.startswith('he')  # -> True
@@ -252,12 +251,12 @@ To disable escape sequences, raw string literals can be used:
         'Hello World'.islower()  # -> False
 
 --
-### Searches
+### Pesquisas
 
 *   count
 
         'hello world'.count('l')  # -> 3
-*   find (index is the same as 'find' but raises exception if can't find the needle.)
+*   find
 
         'hello world'.find('l')  # -> 2
         'hello world'.find('t')  # -> -1
@@ -265,10 +264,10 @@ To disable escape sequences, raw string literals can be used:
 
 
 --
-### Manipulations
+### Manipulações
 
-Be aware that `str` is an immutable type.
-All the methods bellow return new string (there is no in place operations!).
+Esteja atento, porque `str` é um tipo imutável.
+Todos os métodos abaixo retornam uma nova string.
 
 --
 
@@ -281,12 +280,12 @@ All the methods bellow return new string (there is no in place operations!).
 
         'hello world'.replace('world', 'john')  # -> 'hello john'
 
-*   strip, rstrip, lstrip - removes spaces and new lines from the ends of a string:
+*   strip, rstrip, lstrip - remove espaços e nova linha no fim da string:
 
         '     hello!    \n'.strip() # -> 'hello!'
 
 --
-### `+` and `*`
+### `+` e `*`
 
     'hello ' + 'world'  # -> 'hello world'
 
@@ -294,32 +293,32 @@ All the methods bellow return new string (there is no in place operations!).
 
 ---
 
-# Interactive Input and string formatting
+# Entrada interativa e formatação de strings
 <!-- .slide: data-background="img/input.png" -->
 
 --
-### Interactive Input
+### Entrada interativa
 - `input()`
-- `input(prompt)` prints `prompt` before reading input
-- **Notice!** in Python2 it's `raw_input()`
+- `input(prompt)` imprime `prompt` antes da leitura do teclado
+- **Cuidado!** no Python 2 use a função `raw_input()`
 
 --
-### Formating
+### Formatando
 
     name = 'Tom'
 
-    # Bad style formatting
+    # Estilo de formatação ruim
     print('hello ' + name + '!' )
 
-    # Old style formatting
+    # Estilo de formatação antiga
     print('Hello %s!' % name)
 
-    # New style formatting
+    # Estilo de formatação nova
     print('Hello {}!'.format(name))
 
 --
 
--   Named formatting
+- Formatação nomeada
 
         TMPL = 'You got an error in {file} line {line}'
         #.....
@@ -327,14 +326,14 @@ All the methods bellow return new string (there is no in place operations!).
 
         print(TMPL.format(file='a.py', line=5))
 
--   positional formatting
+- Formatação posicionada
 
         >>> print('{0} {0}, {1}'.format('repeat me','not me'))
         repeat me repeat me not me
 
 --
 
--   String is at least x number of chars: `{:x}` (great for painting tables)
+- String possui x números de caracteres: `{:x}`
 
         TEST_RESULTS_TMPL = '{test:40} {status:10}'
         print(TEST_RESULTS_TMPL.format(test='NDU', status='Failed'))
@@ -344,21 +343,19 @@ All the methods bellow return new string (there is no in place operations!).
         Cluster expansion                        Succeed
 --
 
--   Format number as binary `{:b}` or hex `{:x}`
+-   Formatando números como binário `{:b}` ou hexadecimal `{:x}`
 
         >>> print('{:b}'.format(5))
         101
 
--    in short,`{name!conversion:format}` provides options on top of `{}`
-
 --
-### Resources
--   [Format Specification Mini-Language](https://docs.python.org/2/library/string.html#format-specification-mini-language).
--   [Examples](https://docs.python.org/2/library/string.html#format-examples)
--   [String Formatting Cookbook](http://ebeab.com/2012/10/10/python-string-format/)
--   [Common use cases](http://pyformat.info/)
+### Recursos
+-   [Especificação para mini-linguagem de formatação](https://docs.python.org/2/library/string.html#format-specification-mini-language).
+-   [Exemplos](https://docs.python.org/2/library/string.html#format-examples)
+-   [Receitas de formatação de Strings](http://ebeab.com/2012/10/10/python-string-format/)
+-   [Casos mais comuns](http://pyformat.info/)
 
 
 --
-###### Exercise
-[Input and string formatting exercises](http://lms.10x.org.il/item/123/)
+###### Exercícios
+[Entrada e formatação de Strings](http://lms.10x.org.il/item/123/)
