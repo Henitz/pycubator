@@ -1,5 +1,5 @@
 <!-- .slide: data-background="img/monty-python.jpg" -->
-# Introduction
+# Introdução
 
 ### Pycubator
 
@@ -9,33 +9,40 @@
 
 --
 
-* Dynamically typed
-* Multi-paradigm
-* Intuitive syntax
-* Interpreted
-* High-level data types
-* Compromise between a shell script and a C++/Java program ?!?
+* Dinamicamente tipado
+* Multi-paradigma
+* Sintaxe intuitiva
+* Interpretado
+* Tipos de dados de alto nível
+* Compromisso entre shell script e um programa C++/Java
 
 --
 
-### Why learn Python?
+### Porque aprender Python?
+
+* Fácil de aprender a praticar <!-- Citar algum case nacional -->
+* Fortemente usado no mercado: Google, Facebook(Instagram), Microsoft, Dropbox, Globo.com, etc.
+* Utilizando em várias áreas - web, data science, devops, automação, IA e muito mais.
+
+<!--
 
 * Easy and practical to learn (see [Python is Now the Most Popular Introductory Teaching
 Language at Top U.S. Universities][usage])
 * Industrial strength, used by: Google, Facebook(Instagram), Microsoft, Dropbox, etc.
 * Utilized in many fields - web, data science, ops, automation, AI and much more.
+-->
 
 [usage]: http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext
 
 --
 
-### Some History
+### Um pouco de história
 
 --
 
 ![](img/guido.jpg)
 
-That's Guido Van-Rossum, Python creator ^^
+Esse é o Guido Van-Rossum, criador do Python ^^
 
 --
 
@@ -51,9 +58,10 @@ Guido's, [king's day speech][speech]
 
 --
 
-### How was/is Python made?
-* Community of [volunteers][core-dev], aka core developers ([you can also be one][be-core-dev])
-* Transparent flow through Python Enhancement Proposals ([PEPs][PEPs])
+### Como foi e como o Python é feito?
+
+* Comunidade de [voluntários](core-dev), aka core developres ([você também pode ser um](be-core-dev))
+* Processo transparente através do Python Enhancement Proposals ([PEPs](PEPs))
 
 [PEPs]: https://www.python.org/dev/peps/
 [core-dev]: https://hg.python.org/committers.txt
@@ -61,16 +69,19 @@ Guido's, [king's day speech][speech]
 
 ---
 
-## The Zen of Python
+## O Zen of Python
 
 --
 
-* Beautiful is better than ugly
-* Explicit is better than implicit
-* Simple is better than complex
-* Complex is better than complicated
-* Readability Counts
+* Bonito é melhor que feito
+* Explícito é melhor do que implícito
+* Simples é melhor do que complexo
+* Complexo é melhor do que complicado
+* Legibilidade conta
 
+[Zen of Python completo](zen-of-python)
+
+[zen-of-python](https://zenorocha.com/licoes-aprendidas-com-o-mundo-python/)
 --
 
 ### Java
@@ -99,65 +110,68 @@ Guido's, [king's day speech][speech]
 
 --
 
-### Other ideas
-* There should be one obvious way to do it
-* Clarity over speed
-* We are all consenting adults here
+### Outras idéias
+
+* Deveria haver um - e preferencialmente só um - modo óbvio de fazer algo
+* Clareza sobre velocidade
 
 ---
 
-## The great split
+## A grande divisão
 #### Python2 vs. Python3
 
 --
-### Time line
+### Linha do tempo
 
-* December  1989:  Guido  Van  Rossum  starts   Python  implementation
-* January  1994:  Version  1.0  released
-* October  2000:  Version  2.0  released
-* December  2008:  Version  3.0  released
-* June  2009:  Version  3.1  released
-* July  2010:  Version  2.7  released  with  backports
-* May 2016:  current  Python versions  are  2.7.11  and  3.5.1
-
---
-
-###  Why Python 3?
-* Guido wanted to change some of the language design decisions (mainly string encoding)
-* Financing was supplied by Google.
-* A (somewhat) new language was born
+* Dezembro 1989:  Guido  Van  Rossum  inicia a implementação do Python
+* Janeiro 1994:  Versão 1.0 lançado
+* Outubro 2000:  Versão  2.0 lançado
+* Dezembro  2008:  Versão  3.0  lançado
+* Junho  2009:  Versão  3.1  lançado
+* Julho  2010:  Versão  2.7  lançado com correções de segurança
+* Novembro 2016:  Versões atual do Python são 2.7.12 and 3.5.2
 
 --
 
-### Python 3 is backwards incompatible!
+###  Porque Python 3?
 
-* `print` and `exec` become functions 
-* Massive usage of generators instead of lists 
-* All text (str) is Unicode and encoded text is binary data (bytes)
-* Other minor changes in std lib 
+* Guido procurava alterar algumas partes do design da linguagem (principalmente encoding de strings)
+* Financiamento fornecido pela Google
+* Uma lingua nova nasceu (só um pouco)
 
 --
 
-### So why use Python 3?
+### Python 3 incompatível com versões anteriores!
 
-* Proper encoding
-* Asynchronous programing (`async/await`)
-* Standard library virtualenvs
-* `__pycache__` directories
-* Keyword-only arguments
+* `print` e `exec` tornam-se funções
+* Uso massivo de generators ao invés de listas
+* Todo o texto (str) é Unicode e texto encoded é um dado binário (bytes)
+* Outras pequenas alterações no standard library
 
-And much, much more, but we'll get to that later...
+--
+
+### Então, porque usar Python 3?
+
+* Encoding adequado
+* Programação assíncrona (`async/await`)
+* Inserção do `virtualenv` na Standard Library
+* Diretório `__pycache__`
+* Argumento com somente palavras-chave ([PEP 3102](PEP-3102))
+
+E muito, muito mais, mas vamos voltar nisso depois...
+
+[PEP-3102](https://www.python.org/dev/peps/pep-3102/)
 
 ---
-## Coding tools
+## Ferramentas para codificação
 
 ---
 
-## The REPL
-(Read Evaluate Print Loop)
+## REPL - Read Evaluate Print Loop
+(Shell interativo)
 
 --
-### The REPL
+### REPL - Read Evaluate Print Loop
 
     $ python
     Python 2.7.9 (default, Apr  2 2015, 15:33:21)
@@ -170,18 +184,18 @@ And much, much more, but we'll get to that later...
 
 --
 
-### Why should I use it??
+### Porque eu devo usar isso??
 
-* Quick!
-* Helps test Python behaviour
-* But... doesn't play nice with multiline code (i.e. classes, functions)
+* Fácil!
+* Ajuda a testar o comportamento do código Python
+* Mas... não é legal trabalhar com código multilinha (ex.: classes, funções)
 
 --
 
-###### Exercise
-### Python as a calculator
+###### Exercícios
+### Python como uma calculadora
 
-* Try running the following in your python shell:
+* Tenta executa o seguinte código no seu python shell:
 
         >>> 10 + 10
         20
@@ -192,14 +206,14 @@ And much, much more, but we'll get to that later...
         >>> (10 + 20) * 3
         90
 
-* What does `**` do?
-* What does `%` do?
-* What does `import this` do?
+* O que `**` faz?
+* O que `%` faz?
+* O que `import this` faz?
 
 ---
 
 ## IPython
-### (REPL on steroids)
+### (REPL com esteróides)
 
 --
 ```bash
@@ -219,22 +233,20 @@ from       frozenset
 
 --
 
-### Cool features
+### Funcionalidades legais
 
-* Use `tab` for autocomplete.
-* Append a `?` to an end of a variable, a function, a class and more to get some help.
-* Execute regular shell commands from within Ipython: `!ls`
-* `%magic` commands are really cool. Try `%history`, `%save` and `%pastebin` for example.
-
+* Use `tab` para autocomplete.
+* Acrescente um `?` no fim da variável, função, classe e mais que deseja saber.
+* Executa comandos shell normalmente com Ipython: `!ls`
+* O comando `%magic` é realmente legal. Tente `%history`, `%save` e `%pastebin` por exemplo.
 
 ---
 
-## .py files
+## Arquivos *.py
 
 --
-
-* Python source files
-* (No compilation needed)
+* Código fonte Python
+* (Não precisa de compilação)
 
 --
 
@@ -247,55 +259,27 @@ from       frozenset
 
 ---
 
-## IDE
+## Guia de estilo
 
---
-
-### PyCharm
-
--   [PyCharm's website](https://www.jetbrains.com/pycharm/)
--   You can set up both python 2 and python 3 side by side.
--   A commercial and a community versions are available for download.
-
---
-
-### Pycharm shortcuts
--   Use `Alt+Enter` for quick fixes, including *auto import* (which is very useful).
--   Use `Ctrl+Shift+A` to find any command or setting!
--   Use `Ctrl+Alt+L` to reformat your code.
-
---
-
--   Use `Ctrl+Shift+F10` to run the current file.
--   Use `Shift+F10` to run again the last file.
--   Use `Ctrl+Space` for method/variable autocomplete.
-
----
-
-## Style guide
-
---
-
--   Python puts a strong emphasis on readability
--   Hence [PEP 8][pep8] was created.
--   It holds style guidelines for how Python code should **look**
+- Python coloca uma forte ênfase na legibilidade
+- Consequentemente a [PEP 8][pep8] foi criada
+- Ele mantem um guia de estilo para mostrar como o código Python deve ficar **bonito**
 
 [pep8]: https://www.python.org/dev/peps/pep-0008/
 
 
 ---
 
-##### Advanced
-## Some more theory
+##### Avançado
+## Mais um pouco de teoria
 
 --
 
-### Interpreted?
+### Interpretado?
 
-* What does it mean for a language to be "interpreted?"
-* Trick question - "interpreted" and "compiled" refer to implementations, not languages
-* The most common Python implementation (CPython) is a mix of both:
-    * Compiles source code to byte code (.pyc files)
-    * Then interprets the byte code directly, executing as it goes
-    * No need to compile to machine language
-    * Essentially, source code can be run directly
+* O que significa para uma linguagem ser "interpretada?"
+* Dica - "interpretado" e "compilado" se refere a implementações, não linguagens
+* A implementação Python mais comum (CPython) é uma mistura de ambos:
+   * Código-fonte compilado para byte code (arquivos .pyc)
+   * Em seguida, o byte code é interpretado diretamente
+   * Essencialmente, código-fonte pode ser executado diretamente
