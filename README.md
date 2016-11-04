@@ -16,23 +16,20 @@ Pycubator segue os seguintes princípios:
  - Exemplos do mundo real
 
 ## Executando localmente
- - Faça o checkout do RevealJS
-
 ```shell
-$ git submodule init
-$ git submodule update
+$ make setup
 ```
 
  - Execute o scripte da seguinte forma, para gerar os slides em HTML:
 
 ```shell
-$ python3 build.py
+$ make build
 ```
 
  - Roda os comandos abaixo para abrir os slides no seu browser:
- 
+
 ```shell
-$ cd docs && python3 -m http.server
+$ make run
 ```
 
 ## Contribuição

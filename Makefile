@@ -1,6 +1,7 @@
 DOCS=./docs
 
 setup: revealjs
+	@echo "Instalando as dependências..."
 	@pip install -r requirements.txt
 
 build: clean
@@ -8,6 +9,7 @@ build: clean
 	@python build.py
 
 revealjs:
+	@echo "Instalando RevealJS..."
 	@git submodule init
 	@git submodule update
 
