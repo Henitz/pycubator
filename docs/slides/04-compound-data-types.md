@@ -4,8 +4,8 @@
 --
 
 ### Visão Geral
-- Tipos de dados são compostos em pequenas, exemplo: uma string é composta de strings menores que contém um único caracter.
-- Suporte métodos semelhantes, emboraca cada tipo tenha suas próprias qualidades e deve ser efetivo em certos casos (e não em outros).
+- Tipos de dados são compostos em pequenas partes, exemplo: uma string é composta de strings menores que contém um único caracter.
+- Suporta métodos semelhantes, embora cada tipo tenha suas próprias qualidades e deve ser efetivo em certos casos (e não em outros).
 - Tipos incluidos são: string, tuplas, listas, dicionários e sets.
 
 ---
@@ -39,6 +39,7 @@
     s[3:]  # -> 'lo world'
 
 --
+### Exemplos
 
 	# pode usar índice negativo também
     s[2:-2]  # -> 'llo wor'
@@ -53,7 +54,8 @@
 --
 
 ### Dividindo, juntando e listando
-* Dividindo uma string de acordo com o valor
+* Dividindo uma string de acordo com o valor:
+
         'hello world'.split()  # -> ['hello', 'world']
 
         'hello, and ,welcome'.split(',', maxsplit=1) # -> ['hello', ' and ,welcome']
@@ -135,7 +137,7 @@
 --
 ### Mais ações
 
-- `lst[i] = v`: Altera um elemento ou fatia por atribuit a ele
+- `lst[i] = v`: Altera um elemento ou fatia por atribuir a ele
 - `lst.extend(l)`: Adiciona um iterável (uma outra lista, por exemplo)
 - `lst.remove(v)`: Remove um valor específico
 
@@ -178,7 +180,7 @@
 
 --
 
-- O operador `in` escapeia por todos os elementos e retorna `True` ou `False`:
+- O operador `in` escaneia por todos os elementos e retorna `True` ou `False`:
 
         >>> 'apple' in l
         True
@@ -235,7 +237,7 @@ Enquanto estiver usando o operador de atribuição (`=`) em uma lista, a referê
 
 --
 
-Como demonstrado acima, `l2` não é uma cópia de `l`, mas uma refeência da mesma lista python na memória.
+Como demonstrado acima, `l2` não é uma cópia de `l`, mas uma referência da mesma lista python na memória.
 Para criar uma cópia da lista, use o operador de fatia (`[:]`):
 
     >>> l3 = l[:]
@@ -329,14 +331,14 @@ Tenha em mente é uma cópia rasa de l:
   - Hash é uma chave para mapear valores
   - Chaves devem ser imutáveis para que o hash não mude
 - `dict()` e `{}` são dicionários vazios.
-- `d[k]` acessa o valoe mapeado por `k`
+- `d[k]` acessa o valor mapeado por `k`
 - `d[k] = v` atualiza o valor mapeado por `k`
 
 --
 ### Métodos
 - `len()`, `in`, e `del` trabalha como listas
 - `d.keys()` e `d.values()` Retorna uma lista correspondente das chaves e valores do dicionário.
-- `d.items()` produces a list of tuples `(k,v)`
+- `d.items()` proxuz uma lista de tuplas `(k,v)`
 - `d.get(k,x)` olha para o valor de `k`. Retorna `x` se `k not in d`
 - `d[k] = x` cria uma chave ou altera um valor da respectiva chave.
 - `d.pop(k,x)` retorna e remove o valor de `k`. Retorna `x` como padrão
@@ -464,7 +466,7 @@ Tenha em mente é uma cópia rasa de l:
 
 - `len(x)`: Mostra número de elementos
 - `sum(x)`: Soma os elementos
-- `a in x`: checka presença
+- `a in x`: checa presença
 - `all(x)/any(x)`: retorna `True` quando toda/qualquer elemento retorna `True`
 
 --
