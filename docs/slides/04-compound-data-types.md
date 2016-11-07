@@ -1,88 +1,84 @@
-# Compound Data Types
+# Tipo de dados compostos
 <!-- .slide: data-background="img/puzzles.jpg" -->
 
 --
 
-### Overview
-- Data types that are compound of smaller pieces, example: a string is made up from smaller strings
- containing  a single character.
-- Support similar methods, although each type has it's own unique qualities and will be effective in
- certain use cases (and not others).
-- Types included are: string, tuple, list, dictionary, set.
+### Visão Geral
+- Tipos de dados são compostos em pequenas, exemplo: uma string é composta de strings menores que contém um único caracter.
+- Suporte métodos semelhantes, emboraca cada tipo tenha suas próprias qualidades e deve ser efetivo em certos casos (e não em outros).
+- Tipos incluidos são: string, tuplas, listas, dicionários e sets.
 
 ---
 
-# More fun with Strings!
+# Mais diversão com Strings!
 <!-- .slide: data-background="img/string.jpg" -->
 
 --
 ### Slicing
-- Similar to `range` parameters
-- Index with square brackets: `s[1]`
-- Negative indexing gets elements from the end of list: `s[-1]`
-- Slices:
-  - Basic syntax is `s[start:end]`: `s[1:4]`
-  - Slicing from the beginning of the string: `s[:5]`
-  - Slicing until the end of the string: `s[3:]`
-  - Negative indexes can also be used in slices: `s[-3:-1]`
+- Similar com parâmetros `range`
+- Índices com pares de colchetes: `s[1]`
+- Índice negativo que retorna o elemento no fim da lista: `s[-1]`
+- Fatias:
+  - Sintaxe básica é `s[inicio:final]`: `s[1:4]`
+  - Fatiando no inicio da string: `s[:5]`
+  - Fatiando até o final da string: `s[3:]`
+  - Índice negativo também pode ser usado em fatias: `s[-3:-1]`
 
 --
-### Examples
+### Exemplos
 
     s = 'hello world'
 
-    # slicing (inclusive start, exclusive end)
+	# fatiando (incluindo inicio, excluindo o final)
     s[1:4]  # -> 'ell'
 
-    # from start to index
+    # a partir do início do índice
     s[:4]  # -> 'hell'
 
-    # from index to end
+	# a partir do final do índice
     s[3:]  # -> 'lo world'
 
 --
 
-    # can use negative indexes as well
+	# pode usar índice negativo também
     s[2:-2]  # -> 'llo wor'
 
-    # jumps
+	# saltos
     s[::2]  # -> 'hlowrd'
     s[1::2]  # -> 'el ol'
 
-    # negative jumps
+	# saltos negativos
     s[::-1]  # -> 'dlrow olleh'
 
 --
 
-### Spliting, joining and lists
-*   Splitting a string according to a value
-
+### Dividindo, juntando e listando
+* Dividindo uma string de acordo com o valor
         'hello world'.split()  # -> ['hello', 'world']
 
         'hello, and ,welcome'.split(',', maxsplit=1) # -> ['hello', ' and ,welcome']
 
-* `['hello', 'world']` is a list data type. We'll very soon find out more about that!
+* `['hello', 'world']` é um dado do tipo lista. Nós vamos ver mais sobre isso depois!
 
 --
 
-*   Joining list values using a specific string separator
-
+* Unindo valores de uma lista usando um separador de string específico
         ' '.join(['hello', 'world'])  # -> 'hello world'
 
         ','.join(['first line', 'second line'])  # -> 'first line,second line'
 
 --
-###### Exercises
-[Slicing Joining and More](http://lms.10x.org.il/item/30/)
+###### Exercícios
+[Dividindo, Juntando e Mais](http://lms.10x.org.il/item/30/)
 
 ---
 
-# Lists
+# Listas
 <!-- .slide: data-background="img/list.jpg" -->
 --
-### Basics
-- An ordered collection of values
-- Create an empty list:
+### Básico
+- Uma coleção ordenada
+- Cria uma lista vazia:
 
         >>> l = list()
         >>> type(l)
@@ -92,9 +88,9 @@
         list
 
 --
-### Modifying
+### Modificando
 
--   Appending values to the list:
+- Acrescentando valores na lista:
 
         >>> l.append('apple')
         >>> l
@@ -103,7 +99,7 @@
         >>> l
         ['apple', 'orange']
 
--   Creating a populated list:
+- Criando uma lista populada:
 
         >>> l = ["orange", "apple", "strawberry", "banana", "apricot"]
         >>> l
@@ -111,13 +107,13 @@
 
 --
 
--   Adding on a specific index:
+- Adicionando em um índice específico:
 
         >>> l.insert(3, 'melon')
         >>> l
         ['orange', 'apple', 'strawberry', 'melon', 'banana', 'apricot', 'grapes']
 
--   Deleting an item on a specific index:
+- Removendo um item de um índice específico:
 
         >>> del l[0]
         >>> l
@@ -125,7 +121,7 @@
 
 --
 
--   Popping an element (remove it and return it's value):
+- Removendo um elemento (remove ele e retorna o seu valor):
 
         >>> l.pop() # last element by default
         'grapes'
@@ -137,23 +133,23 @@
         ['strawberry', 'melon', 'banana', 'apricot']
 
 --
-### More actions
+### Mais ações
 
-- `lst[i] = v`: Change an element or slice by assigning to it
-- `lst.extend(l)`: Add an iterable
-- `lst.remove(v)`:remove a specific value
+- `lst[i] = v`: Altera um elemento ou fatia por atribuit a ele
+- `lst.extend(l)`: Adiciona um iterável (uma outra lista, por exemplo)
+- `lst.remove(v)`: Remove um valor específico
 
 --
 
-### Sequence operations on lists
+### Sequência de operações nas listas
 
--   All sequence operations are valid on lists:
+- Todas as sequências de operações são válidas nas listas:
 
         >>> l = ['orange', 'apple', 'strawberry', 'melon', 'banana', 'apricot', 'grapes']
         >>> len(l)
         7
 
--   For loops through the list:
+- Loops for através das listas:
 
         >>> for x in l:
         ...     print(x)
@@ -166,7 +162,7 @@
 
 --
 
--   Retrieving elements by index, negative index, and slicing:
+- Recuperando elementos por índice, índice negativo e fatia:
 
         >>> l[0]
         'apple'
@@ -182,14 +178,14 @@
 
 --
 
--   The `in` operator scans through all elements and return `True` or `False`:
+- O operador `in` escapeia por todos os elementos e retorna `True` ou `False`:
 
         >>> 'apple' in l
         True
         >>> 'basketball' in l
         False
 
--   Lists can be concatenated with `+` and multiplied by `*`:
+- Listas podem ser concatenadas com `+` e multiplicadas por `*`:
 
         >>> [25,3,14] + [5,4] + [101, 2]
         [25, 3, 14, 5, 4, 101, 2]
@@ -198,9 +194,9 @@
 
 --
 
-### In-place list operations
+### Operações in loco
 
--   The `.reverse()` method changes a list in-place, and returns `None`:
+- O método `.reverse()` altera a própria lista, e retorna `None`:
 
         >>> fruit = ["orange", "apple", "strawberry", "banana", "apricot"]
         >>> fruit.reverse()  # changes the list fruit!
@@ -209,7 +205,7 @@
 
 --
 
--   The `.sort()` method sorts elements in-place, and returns `None`:
+- O método `.sort()` organiza os próprios elementos, e retorna `None`:
 
         >>> fruit = ["orange", "apple", "strawberry", "banana", "apricot"]
         >>> fruit.sort()  # changes the list fruit!
@@ -221,9 +217,9 @@
 
 --
 
-### Lists and Refereneces
+### Listas e Referências
 
-When using the assignment operator (`=`) on a list, a reference is created to the original list:
+Enquanto estiver usando o operador de atribuição (`=`) em uma lista, a referência é criada para a lista original:
 
     >>> l = [10,5,25,100,250,1,8]
     >>> l
@@ -239,8 +235,8 @@ When using the assignment operator (`=`) on a list, a reference is created to th
 
 --
 
-As demonstrated above, `l2` is not a copy of `l`, but a reference to the same list in python's memory.
-To create a copy of the list, use the slicing operator (`[:]`) :
+Como demonstrado acima, `l2` não é uma cópia de `l`, mas uma refeência da mesma lista python na memória.
+Para criar uma cópia da lista, use o operador de fatia (`[:]`):
 
     >>> l3 = l[:]
     >>> l3.append(9876)
@@ -251,7 +247,7 @@ To create a copy of the list, use the slicing operator (`[:]`) :
 
 --
 
-Keep in mind this is a SHALLOW copy of l:
+Tenha em mente é uma cópia rasa de l:
 
     >>> numbers = [10,20,30]
     >>> l = [numbers, "x", "y"]
@@ -273,29 +269,29 @@ Keep in mind this is a SHALLOW copy of l:
     [[10, 20, 30, 9999], 'x', 'y', 'z']
 
 
-(`copy.deepcopy` should be used to create a deep copy of lists)
+(`copy.deepcopy` deve ser usado para criar uma cópia real das listas)
 
 --
-###### Exercise
+###### Exercícios
 
-[Lists exercises](http://lms.10x.org.il/item/148/)
+[Listas](http://lms.10x.org.il/item/148/)
 
 ---
 
-# Tuple
+# Tuplas
 <!-- .slide: data-background="img/tulips.jpg" -->
 
 --
-### Overview
-- **Immutable**
-- Tuples are used for grouping ordered data
-- Support indexing and slicing syntax
-- Powerful assignment feature (packing/unpacking)
-- Creation is faster than a list
-- Can be hashed! (we'll talk about that soon)
+### Visão geral
+- **Imutável**
+- Tuplas são usados para agrupar dados ordenados
+- Suporta sintaxe de índices e fatiamento
+- Poderosa funcionalidade de atribuição (packing/unpacking)
+- Criação é mais rápida que a lista
+- Pode ser _hashed_ (falamos isso em breve)
 
 --
-### Creating a tuple
+### Criando uma tupla
     >>> t = tuple()
     >>> type(t)
     tuple
@@ -304,7 +300,7 @@ Keep in mind this is a SHALLOW copy of l:
     >>> type(t)
     tuple
 
-    >>> t = 1, 2, 'hi' # be careful
+    >>> t = 1, 2, 'hi' # cuidado
     >>> type(t)
     tuple
 
@@ -314,7 +310,7 @@ Keep in mind this is a SHALLOW copy of l:
 
 --
 
-### Powerful assignments
+### Poderosa atribuição
 
     x, y = 'hi', 'man'
     x, y = y, x
@@ -324,65 +320,66 @@ Keep in mind this is a SHALLOW copy of l:
     man hi
 ---
 
-# Dictionary
+# Dicionários
 <!-- .slide: data-background="img/dictionary.jpg" -->
 
 --
-### Basics
-- A dictionary is a hash map:
-  - It hashes the keys to lookup values
-  - Keys must be immutable so that the hash doesn't change
-- `dict()` and `{}` are empty dictionaries
-- `d[k]` accesses the value mapped to `k`
-- `d[k] = v` updates the value mapped to `k`
+### Básico
+- Um dicionário é um hash map:
+  - Hash é uma chave para mapear valores
+  - Chaves devem ser imutáveis para que o hash não mude
+- `dict()` e `{}` são dicionários vazios.
+- `d[k]` acessa o valoe mapeado por `k`
+- `d[k] = v` atualiza o valor mapeado por `k`
 
 --
-### Methods
-- `len()`, `in`, and `del` work like lists
-- `d.keys()` and `d.values()` return corresponding lists of the dict keys and values.
+### Métodos
+- `len()`, `in`, e `del` trabalha como listas
+- `d.keys()` e `d.values()` Retorna uma lista correspondente das chaves e valores do dicionário.
 - `d.items()` produces a list of tuples `(k,v)`
-- `d.get(k,x)` looks up the value of `k`. Returns `x` if `k not in d`
-- `d[k] = x` creates a key or changes that existing key value
-- `d.pop(k,x)` return and remove value at `k`. Returns `x` as default
+- `d.get(k,x)` olha para o valor de `k`. Retorna `x` se `k not in d`
+- `d[k] = x` cria uma chave ou altera um valor da respectiva chave.
+- `d.pop(k,x)` retorna e remove o valor de `k`. Retorna `x` como padrão
 
 --
-### Switch Statement Replacement
-- Python doesnt have a `switch(x)`, dictionaries do the job
-- Replace long `if x = a: elif x = b: elif...` with a dictionary lookup
+### Substituição da decladação Switch
+- Python não possui um `switch(x)`, já que dicionários fazem esse trabalho.
+- Substitua o longo `if x = a: elif x = b: elif...` com o lookup de dicionários
 
 --
-###### Exercises
+###### Exercícios
 
-[Dictionaries exercises](http://lms.10x.org.il/item/37/)
+[Dicionários](http://lms.10x.org.il/item/37/)
 
 
 ---
 
-# Set
+# Conjuntos (Sets)
 <!-- .slide: data-background="img/set.png" -->
 
 --
-### Basics
-- No order, no duplicates
-- Hash Set: elements must be immutable
-- Empty set: `set()` not `{}` (empty dict)
+### Básico
+- Sem ordem, nenhum valor duplicado
+- Hash Set: elementos devem ser imutáveis
+- Set vazio: `set()`
+- Empty set: `set()` não é um `{}` (dicionário vazio)
 - `{1, 'blah', 5, -1}`
-- Can de-duplicate a list: `list(set(lst))`
+- Pode desduplicar uma lista: `list(set(lst))`
 
 --
-### Methods
-- `s.add(v)`: adds a value to set
-- `s.remove(v)`: removes v. will raise an error if v not in s
-- `s.discard(v)`: removes v. will not raise error
-- `s.difference(s2)` or `s - s2`: elements in s but not s2
-- `s.union(s2)` or `s | s2`: elements in s or s2
-- `s.intersection(s2)` or `s & s2`: elements in s and s2
-- `s.update(s2)` or `s = s | s2`: updates s with s2 values
+### Métodos
+- `s.add(v)`: adiciona um valor no set
+- `s.remove(v)`: remove v. Deve disparar um erro se v não estiver em s
+- `s.discard(v)`: remove v. Não disparar erro
+- `s.difference(s2)` ou `s - s2`: elementos em s, mas não em s2
+- `s.union(s2)` ou `s | s2`: elementos em s ou s2
+- `s.intersection(s2)` ou `s & s2`: elementos em s e s2
+- `s.update(s2)` ou `s = s | s2`: atualiza s com valores de s2
 
 --
-##### Advance Exercise
+##### Exercício Avançado
 
-[Sets vs. Lists](http://lms.10x.org.il/item/90/)
+[Conjuntos vs. Listas](http://lms.10x.org.il/item/90/)
 
 ---
 
@@ -391,24 +388,24 @@ Keep in mind this is a SHALLOW copy of l:
 
 --
 ### List Comprehensions
-- Compile a list with a one-liner.
+- Compila uma lista com uma linha.
 - `[expr for v in iter]`
 - `[expr for v in iter if cond]`
-- This:
+- Isso:
 
         res = []
         for v1, v2 in lst:
             if v1 > v2:
                 res.append(v1 * v2)
 
-- Becomes that:
+- Se torna nisso:
 
         res = [v1 * v2 for v1, v2 in lst if v1 > v2]
 
 
 --
-### Nested List Comprehensions
-- This:
+### List Comprehensions aninhadas
+- Isso:
 
         res = []
         for y in lst2:
@@ -416,36 +413,36 @@ Keep in mind this is a SHALLOW copy of l:
             for x in lst1:
                 inter.append(x)
 
-- Becomes that:
+- Se torna nisso:
 
         [[x for x in lst1] for y in lst2]
 
 
 --
 ### Dictionary Comprehensions
-- Like lists but swap `[]` for `{}`
-- This:
+- Como listas, mas troque `[]` por `{}`
+- Isso:
 
         d = dict()
         for k, v in lst:
             d[k] = v
 
 
-- Becomes that:
+- Se torna nisso:
 
         {k: v for k,v in lst}
 
 
 --
 ### Set Comprehensions
--   Like dictionaries but no `:`
--   This:
+-   Como dicionários mas sem o `:`
+-   Isso:
 
         s = set()
         for x in lst:
             s.add(x)
 
-- Becomes that:
+- Se torna nisso:
 
         {x for x in lst}
 
@@ -457,27 +454,27 @@ Keep in mind this is a SHALLOW copy of l:
         type(tup)
         <class 'generator'>
 
-- We'll cover generators later
+- Vamos cobrir generators depois
 
 ---
 
-# Iterators Builtins
+# Iteradores Builtins
 
 --
 
-- `len(x)`: gives the number of elements
-- `sum(x)`: adds up elements
-- `a in x`: checks presence
-- `all(x)/any(x)`: return True is any/all in lst are True
+- `len(x)`: Mostra número de elementos
+- `sum(x)`: Soma os elementos
+- `a in x`: checka presença
+- `all(x)/any(x)`: retorna `True` quando toda/qualquer elemento retorna `True`
 
 --
 
-- `max(x)/min(x)`: biggest/smallest element
-- `reversed(x)`: iterator of elements in reverse order (doesn't work for sets, why?)
-- `zip(x,x)`: list of tuples with one element from each list
-- `sorted(x)`: returns new sorted list
+- `max(x)/min(x)`: maior/menos elemento
+- `reversed(x)`: iterador de elementos em ordem reversa (não trabalha com sets, porque?)
+- `zip(x,x)`: lista de tuplas com um elemento de uma com outra lista
+- `sorted(x)`: retorna uma lista ordenada
 
 --
-###### Exercise
+###### Exercícios
 
-[Comprehensions exercises](http://lms.10x.org.il/item/41/)
+[Comprehensions](http://lms.10x.org.il/item/41/)
