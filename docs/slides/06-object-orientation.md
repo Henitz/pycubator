@@ -1,36 +1,36 @@
-# Object Orientation
+# Orientação a Objetos
 <!-- .slide: data-background="img/3D-Object-Pictures.jpg" -->
 
 --
 
-### Class statement
+### Declaração de Classe
 
     class Foo:        #python2 Foo(object):
         pass
 
 - `class Foo` &srarr; `class Foo(object)`
-- Classes are ways to define new objects
-- Creates a new class object named Foo
-- Class definitions create a new namespace (scope)
-- Variables defined in the class body are *class attributes*
-- Functions defined in the class body are *instance methods*
+- Classes são modos para definir novos objetos
+- Cria uma novo objeto de classe chamado Foo
+- Definição de classe cria um novo namespace (escopo)
+- Variáveis definidas no corpo da classe são *atributos de classe*
+- Funções definidas no corpo da classe são *métodos de instância*
 
 --
-### Constructors
+### Construtores
 
     class Circle:
         def __init__(self, radius):
             self.r = radius
 
-- `__init__` initializes an instance of the class
+- `__init__` inicializa uma instância da classe
 - `x = Circle()`
-    - Creates an object of type `Circle`
-    - Calls `Circle.__init__(self)`
-    - Binds self to the name x
+	- Cria um objeto do tupo `Circle`
+	- Chama `Circle.__init__(self)`
+	- Liga *self* com o nome *x*
 
 --
 
-### Instance methods
+### Métodos de instância
 
     class Circle:
         def __init__(self, radius=5):
@@ -38,13 +38,13 @@
         def get_perimter(self, a, b):
             return 2 * math.pi * self.r
 
--   Instance method definitions must use self as the first argument
+- Definições de método de instância deve usar *self* como primeiro argumento
 
 --
-### Private by convention
+### Privado por convenção
 
--   A leading `_` means use at your own risk
--   "We're all adults here": you can still access any variable that you want
+- O primeiro `_` significa que uso é por seu risco
+- "Todos os adultos aqui": você pode ainda acessar qualquer variável que você quer
 
         class Circle:
             _pi = 3.14
@@ -54,28 +54,27 @@
                 return 2 * self._pi * self.r
 
 --
-###### Exercise
-[Python Classes](http://lms.10x.org.il/item/46/)
+###### Exercícios
+[Classes Python](http://lms.10x.org.il/item/46/)
 
 ---
 
-# Inheritance
+# Herança
 <!-- .slide: data-background="img/William_Hogarth_Inheritance.jpg" -->
-From William Hogarth's [A Rake's Progress](http://en.wikipedia.org/wiki/A_Rake%27s_Progress).
-"The Young Heir Takes Possession Of The Miser's Effects".
+
 --
 
-### Single inheritance
+### Herança simples
 
     class Circle(Shape):
         def __init__(self):
             super().__init__()     # python2 super(Circle, self).__init__()
             self.new_var = default
 
-- Super classes are arguments to the `class` statement
-- `object` is the default base class
-- `class Circle(Shape)`: inherits from Shape
-- Make sure to call the `__init__` of the super class
+- Super classes são argumentos para a declaração `class`
+- `objeto` é a classe base padrão
+- `class Circle(Shape)`: herda de Shape
+- Tenha certeza de chamar o `__init__` da super classe
 
 --
 
@@ -122,55 +121,55 @@ print(u.render("hello"))
 
 --
 
-##### advanced
-## Multiple inheritance
+##### avançado
+## Herança múltipla
 
     class Circle(Shape, Drawable):
         def __init__(self):
             super().__init__(self)
 
-- You can inherit from multiple super classes
-- Attributes will be resolved via the MRO (Method Resolution Order)
+- Você pode herdar múltiplas super classes
+- Atributos deve ser resolvido via MRO (Ordem de Resolução de Método)
 - `Circle.mro()`
 
 --
 
-###### Exercise
-[Class inheritance](http://lms.10x.org.il/item/116/)
+###### Exercício
+[Herança de Classe](http://lms.10x.org.il/item/116/)
 
 ---
 
-##### Advanced
-# Python Magic! (methods)
+##### Avançado
+# Python Magic! (métodos)
 <!-- .slide: data-background="img/magic_mist.jpg" -->
 
 --
-## Magic Methods
+## Métodos Mágicos
 
-- *Syntactic sugar* is done with magic methods
-- Methods of the form `__method_name__` are "magic"
-- Things like `f()` and `seq[i]` are magic method calls
+- *Açucar sintático* é feito com métodos mágicos
+- Mètodos com a forma `__method_name__` são "mágicos"
+- Coisas como `f()` e `seq[i]` são chamadas de métodos mágicos
 
 --
 
 ## __new__, __init__, __call__
 - `x = C()` &srarr; `x = C.__init__(C.__new__())`
-    - `__new__` creates a new object
-    - `__init__` initializes it
+    - `__new__` cria um novo objeto
+    - `__init__` inicializa o objeto
 - `x(arg,...)` &srarr; `x.__call__(arg,...)`
 
 --
 
 ## __str__, __repr__
 - `str(x)` &srarr; `x.__str__()`
-    - Returns a human readable string
+	- Retorna uma string humanizada
 - `repr(x)` &srarr; `x.__repr__()`
-    - Returns a complete description of object
+	- Retorna uma descrição completa do objeto
 
 
 --
 
-## Comparisons
+## Comparações
 - `x < y` &srarr; `x.__lt__(y)`
 - `x > y` &srarr; `x.__gt__(y)`
 - `x <= y` &srarr; `x.__le__(y)`
@@ -180,70 +179,71 @@ print(u.render("hello"))
 
 --
 
-## Arithmetic operations
-- All the arithmetic operators have magic methods
+## Operações aritméticas
+- Todas as operações aritméticas possuem métodos mágicos
 - `__add__, __sub__, __mod__, __xor__, ...`
-- Additional methods for += and others
+- Métodos adicionais para += e outros
 
 ---
 
-##### advanced
-# Advanced topics
+##### avançado
+# Tópicos avançados
 
 --
 ### Attribute Lookups
-- `Foo.__dict__` is a dictionary storing class attributes
-- `Foo.val` translates to `Foo.__dict__['val']`
-- Given `x = Foo()` then `x.__dict__` is a dictionary storing instance attributes
-- x.val translates to:
-    - `x.__dict__['val']` if val is an instance attribute
-    - `Foo.__dict__['val']` if there is no instance attribute named val but there is a class attribute named val
+### Atributos de pesquisas
+- `Foo.__dict__` é um dicionário de armazenamento de atributo de classe
+- `Foo.val` traduz para `Foo.__dict__['val']`
+- Dados `x = Foo()` então `x.__dict__` é um dicionário de armazenamento de atributos da instância
+- *x.val* traduz para:
+	- `x.__dict__['val']` se *val* é um atributo de instância
+	- `Foo.__dict__['val']` se não houver nenhum attributo de instância chamado *val*, mas existe um atributo de classe chamado val
 
 --
 
-### Static methods
+### Métodos estáticos
 
     class Circle:
         @staticmethod
         def radius_to_perimeter(r):
             return 2 * math.pi * r
 
--   Attach functions to classes (with similar context)
--   A static method doesn't receive a self argument
--   Static methods should not depend on class attributes
+- Anexa funções para classes (com contexto similar)
+- Um método estático não recebe um argumento *self*
+- Métodos estáticos não deve depender de atributos de classe
 
 --
 
-### Class methods
+### Métodos de classe
 
     class Circle:
         @classmethod
         def from_circumference(cls, circ):
             return cls(circ/(2 * math.pi))
 
-- A class method gets the class object as self.
-- Alternative constructor.
-- Call the first argument cls.
+- Um método de classe retorna um objeto de classe como *self*.
+- Alternativa ao construtor.
+- Chamada o primeiro argumento *cls*
 
 --
 
-### Private attributes
+### Atributos privados
 
 - `__`
-    - A leading __ is used to prevent subclasses from accidentally overwriting stuff
-    - It does so by triggering *name mangling*:
+	- O primeiro `__` é usado para prevenir subclasses de acidentalmente sobrescrevê-la
+	- Ele faz isso name mangling (decoração de nome):
         - `__some_var` &srarr; `_classname__some_var`
-        - classname is the name of the class which `__some_var` was defined in
-    - If you know the classname and variable you can do the mangling yourself
+        - classname é o nome da classe que `__some_var` foi definido
+	- Se você souber o nome da classe e variável você pode fazer o mangling você mesmo
 
 --
 
-## No getters and setters???
-- Python's `@property` and `@attr.setter` replace the need for getters and setters
-- Decorate method with `@property` to replace attribute getter
-    - Gets called in `x.attr`
-- Decorate with `@attr.setter` to replace attribute setter
-    - Gets called in `x.attr = val`
+## Sem getters e setters???
+- No python, `@property` e `@attr.setter` substitui a necessidade de getters e setters
+- Métodos decorados com `@property`, substitui atributos getter
+	- Retorno chamados em `x.attr`
+- Métodos decorados com `@attr.setter`, substitui atributos setter
+    - Retorno chamado em `x.attr = val`
 
 --
 
@@ -263,19 +263,19 @@ print(c.area)
 ```
 
 --
-## `Super` - deep dive
+## Mergulhando no `super`
 
 - `super(cls, obj)` &srarr; `super(C, self)`
-    - When wish to call super outside a class method you need to provide it with the class name and it's content.
-    - Class that precedes cls in the MRO of obj
-    - It's bound &srarr; obj gets inserted into method calls
+	- Quando deseja chamar super fora de um método de classe, você precisa forneceer o nome da classe e seu conteúdo
+	- Classe que precede de *cls* na MRO de *obj*
+    - É obrigatório &srarr; *obj* é inserido em chamadas de método
 - `super()`
-    - when called in an instance method of a class, will call it's root class.
+	- quando chamado em métodos de instância da classe, deve chamar classe raiz.
 
 --
 ## getattr
 - `x.value` &srarr; `getattr(x, 'value')`
-- Useful when the attribute name is defined at runtime
+- Útil quando o nome do atributo é definido em tempo de execução
 - `getattr(self, name)` calls `__getattribute__(self, name)` which falls back on `__getattr__(self, name)`
-- Defining `__getattr__` is useful to specify default values
-- `getattr(x, 'value', default)` lets you give a default if everything else fails
+- Definindo `__getattr__` é útil para especificar valores padrão
+- `getattr(x, 'value', default)` permite que você defina um padrão se todo o resto falhar

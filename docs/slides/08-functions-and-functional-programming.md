@@ -1,29 +1,27 @@
 <!-- .slide: data-background="img/function.jpg" -->
-# Functions and Functional Programming
-### Pycubator
+# Funções e Programação Funcional
 
 ---
 
-# Positional and Named Arguments
+# Argumentos posicionais e nomeadas
 <!-- .slide: data-background="img/steen_argument_over_a_card_game.jpg" -->
-<small>Jan Steen, Argument over a Card Game, Wikimedia Commons.</small>
 
 --
 
-### Positional Arguments
+### Argumentos Posicionais
 
     def func(arg1, arg2, arg3):
         pass
 
     func(a, b, c)
 
--   `arg1`, `arg2` and `arg3` are positional arguments
--   When calling `func` exactly 3 arguments must be given, wrong number of args will
-    result in a `TypeError`
--   The order in the call determines which arg they are bound to
+- `arg1`, `arg2` e `arg3` são argumentos posicionais
+- Quando invoca `func`, exatamente 3 argumentos devem ser passados, então, o número
+errado de argumentos resulta em um `TypeError`
+- A ordem da chamada determina que arg elee estão vinaulados
 
 --
-### Named Arguments
+### Argumentos Nomeados
 
     def say(arg1, named1, named2):
         print(arg1, named1, named2)
@@ -33,50 +31,52 @@
     # output
     make my day
 
--   Named arguments can be given out of order
+- Argumentos nomeados podem ser passados fora de ordem
 
 
 --
 
-### Default Arguments
+### Argumentos padrão
 
     def func(arg1, named1=val1, named2=val2):
         pass
 
     func(a, named2=b, named1=c)
 
--   After the regular args, default args are allowed
--   `val1` and `val2` are default values for those variables.
--   Omitting named arguments in a call uses the default value
+- Depois dos args regulares, argumentos padrão podem ser aceitos
+- `val1` e `val2` são valores para essas variáveis.
+- Omitindo argumentos nomeados em uma chamada, serão usados
+os valores padrão.
 
 --
-##### advanced
-### Default Arguments gotcha
+##### avançado
+### Mutação dos argumentos padrão
 
--   Default arguments are evaluated when the function is defined
--   In all calls, the object that the expression evaluated to will be used.
--   If the default is mutable, updates in one call effect following calls
--   `def func(a=[])` Will mutate the default on each call
--   Use None as the default to avoid mutation
+- Os argumentos padrão são avaliados quando a função é definida
+- Em todas as chamadas, o objeeto que a expressão foi avaliada sera usado.
+- Se o padrão é mutável, as atualizações seguem um efeito de chamadas
+- `def func(a=[])` deverá mudar o padrão em cada chamada
+- Use None como padrão para evitar mutação
 
         def func(a=None):
             a = a or []
 
 --
-##### advanced
-### Memoization
+##### avançado
+### Memoização
 
--   Memoization is an optimization technique that stores results of
-function calls
--   The previously computed answers can be looked up on later calls
--   Use a dictionary default arg to store answers
--   `def func(arg, cache={}):`
--   Store answers in `cache[arg] = ans`
--   Check for arg in cache before doing any work
+- Memoização é uma técnica de otimização que armazena resultados em
+chamadas de função
+- As respostas computadas anteriormente, podem ser pesquisadas em
+futuras chamadas
+- Use um dicionário padrão arg para armazenar as respostas
+- `def func(arg, cache={}):`
+- Armazene respostas em `cache[arg] = ans`
+- Verifique arg no cache antes de fazer qualquer trabalho
 
 ---
 
-# Args and KWArgs
+# Args e KWArgs
 <!-- .slide: data-background="img/argument-shadows.jpg" -->
 
 --
@@ -90,15 +90,15 @@ function calls
      # output:
     (2, 3, 4)
 
--   A variable number of positional arguments can be specified
--   Could use any identifier but `args` is conventional
--   `args` is a tuple of 0 or more objects
+- Uma número de variáveis de argumentos posicionais que podem ser especificadas
+- Deve usar qualquer identificador, mas `args` é convencional
+- `args` é uma tupla de 0 ou mais objetos
 
 --
-###### Exercise
-### List students
+###### Exercícios
+### Lista de Estudantes
 
--   Implement the `list_students` function
+- Implementa a função `list_students` com `args`
 
         expected_result = '''0 Tim
         1 Tom
@@ -118,21 +118,21 @@ function calls
     # output
     {'two': 2, 'three': 3}
 
--   Use `**kwargs` at the end
--   Could use any identifier but `kwargs` is conventional
--   kwargs is a dictionary of strings to values
--   The keys of kwargs are the names of the keyword args
+- Use `**kwargs` no final
+- Deve usar qualquer identificador, mas `kwargs` é convencional
+- *kwargs* é um dicionário de strings para valores
+- As chaves do *kwargs* são os nomes dos argumentos
 
 --
-###### exercise
-Implement `person_details` with kwargs
+###### Exercício
+Implemente `person_details` com kwargs
 ```python
 # output
 assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
 ```
 --
 
-### `*` in Function Call
+### `*` em chamadas de função
 
     def bar(arg1, arg2, arg3):
         print(arg1+arg2+arg3)
@@ -143,11 +143,11 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
     # output
     6
 
-- `l` is an iterable
-- It gets unpacked as the positional arguments of `bar`
+- `l` é um iterável
+- Isso é pego descompactado, como argumentos posicionais de `bar`
 
 --
-### `**` in Function Call
+### `**` em chamadas de função
 
     def print_person(name, age):
         print('{} is {} years old'.format(name, age))
@@ -159,13 +159,13 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
     Mike is 28 years old
 
 
-- `person` must be a dictionary of form `{'string': val, ...}`
-- It gets unpacked as the keyword arguments of `print_person`
+- `person` deve ser um dicionário de forma `{'string': val, ...}`
+- Ele é pego descompactado como argumentos palavra-chave de `print_version`
 
 
 --
-##### advanced
-### iterator expansion
+##### avançado
+### Expansão de iterador
 
     a, *the_rest = range(4)
     print(the_rest)
@@ -173,40 +173,42 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
     # output
     (1, 2, 3)
 
-
+- Somente funciona no Python 3
 -   Only works on Python3
--   `a,*var_name = range(5)`: `var_name` is list taking 0 or more values
+-   `a,*var_name = range(5)`: `var_name` é uma lista pegando 0 ou mais valores
 
 --
-##### advanced
-### Required Keyword Args
+##### avançado
+### Args de palavra-chave obrigatórias
 
--   Python3 only
--   Any args after `*args` are keyword args
--   If there is no default value specified, they are required keyword args
--   `def func(*args, named):`
-    - `named` is a required keyword arg
--   To specify required keyword args without allowing variable positional args use `*`
--   `def func(arg1, *, named)`
-    - named is a required kwarg
-    - func must take exactly one pos arg and one kwarg
+- Somente no Python 3
+- Qualquer argumento depois de `*args` são argumentos de palavra-chave
+- Se não houver nenhum valor padrão especificado, eles serão obrigatórios
+como argumentos de palavra-chave
+- `dev func(*args, named):`
+	- `named` é um arguento de palavra-chave obrigatória
+- Para especificar argumentos de palavra-chave obrigatórias sem aceitar
+variáveis posicionais use `*`
+- `def func(arg1, *, named)`
+	- `named` é um kwarg obrigatório
+	- `func` deve pegar exatamente um arg posicional e um arg kwarg
 
 
 --
-##### advanced
-### Annotations
+##### avançado
+### Anotações
 
     def func(name: str, hight: float = 1.90)-> int:
         pass
 
--   Function arguments and return values can be annotated
--   Python does not enforce any meaning to annotations
--   Read further on [PEP 3107](https://www.python.org/dev/peps/pep-3107/) and [PEP 484](https://www.python.org/dev/peps/pep-0484/)
+- Argumentos de função e retorno de valores podem ser anotados
+- Python não reforça qualquer significado para anotações
+- Leia mais sobre [PEP 3107](https://www.python.org/dev/peps/pep-3107/) and [PEP 484](https://www.python.org/dev/peps/pep-0484/)
 
 ---
 
-##### advanced
-# Closures, Global and Non-Local
+##### avançado
+# Closures, Global e Non-Local
 <!-- .slide: data-background="img/global.jpeg" -->
 
 --
@@ -223,16 +225,16 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
     fruit_list = list_fruits()
     fruit_list()
 
-    # output:
+    # saida:
     ['bannana', 'apple']
 
 
 --
 
--   A function that knows about variable defined outside it's scope.
--   `show()` is a closure because it knows about `fruits`
--   Closures are read-only: adding `fruits += ['kiwi']` inside `show()` will result
-    in `UnboundLocalError` exception.
+- Uma função que conhece a variável definida fora de seu escopo.
+- `show()` é um closure, porque ele conhece sobre `fruits`.
+- Closures são somente leitura: adicionando `fruits += ['kiwi']` dentro de `show()`
+irá resultar uma exceção `UnboundLocalError`.
 
 --
 
@@ -243,10 +245,10 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
         global a
         a += 1
 
--   Changing global state can be dangerous, so Python requires you to declare it explicitly
--   `global` can circumvent read-only closures
--   the `global` keyword declares certain variables in the current code block to reference the global scope
--   Variables following global do not need to be bound already
+- Alterando estado global pode ser perigoso, então Python obriga que você declare isso explicitamente
+- `global` pode contornar closures somente leitura
+- A palavra-chave `global` declara certas variáveis em um bloco de código atual para referência ao escopo global
+- Variáveis que seguem global não precisam ser limitadas novamente
 
 --
 
@@ -260,79 +262,77 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
             a += 1
         func()
 
--   Python3 only.
--   `nonlocal` declares certain variables in the current code block to reference the nearest enclosing scope.
--   If the nearest scope is the global scope then nonlocal raises a `SyntaxError`
--   See [PEP 3104](https://www.python.org/dev/peps/pep-3104/)
+- Somente Python 3
+- `nonlocal` declara certas variáveis em um bloco de código atual para referência ao escopo de inclusão
+mais próximo.
+- Se o escopo de inclusão é um escopo global, então o nonlocal levanta um `SyntaxError`
+-   Veja [PEP 3104](https://www.python.org/dev/peps/pep-3104/)
 
 
 ---
 
-##### advanced
-#Functional Programming
+##### avançado
+#Programação Funcional
 <!-- .slide: data-background="img/lambda.jpg" -->
 --
 
 ### Background (1)
 
--   Functional programming started with lambda(&Lambda;) calculus
--   Alternative to Turning machines for exploring computability
--   Expresses programs as functions operating on other functions
--   Functional programming attempts to make it easier to reason about program behavior
--   No data states allows for easier multi threaded programing
+- A Programação Funcional começou com cálculo lambda
+- Alternativa para máquinas Turning para computabilidade
+- Programas expressam como operações de funções em outras funções
+- Programação funcional tente facilitar o raciocínio sobre o comportamento do programa
+- Nenhum estado de dados permite a programação multi-thread de forma fácil
 
 --
 
 ### Background (2)
--   Python data is mutable and allows side-effects
--   Has some functional concepts
--   Not an ideal functional programming environment
+- Dados em Python são mutáveis é permitem efeitos colaterais
+- Possui alguns conceitos funcionais
+- Não é um ambiente ideal de programação funcional
 
 --
 
-### First Class Functions
--   A **higher order function** is a function that does at least one of the following:
-    - Takes a function as one of its inputs
-    - Outputs a function
-
--   You can use functions anywhere you would use a value
--   Functions are immutable so you can use them as dictionary keys
--   Functions can be the return value of another function
+### Funções de primeira classe
+- Uma **função de primeira classe** é uma função que faz pelo menos uma das seguintes:
+	- Toma uma função como um de suas entradas
+	- Executa uma função
+- Você pode usar funções em qualquer lugar, que você usaria um valor
+- Funções são imutáveis, então você pode usar eles como chaves de dicionários
+- Funções podem ser valor de outra função
 
 --
 
-### &lambda; (lambda) Functions
+### Funções &lambda; (lambda)
 
     f = lambda x: x + 1
 
--   Anonymous functions are function objects without a name
--   lambdas can have the same arguments as regular functions:
+- Funções anônimas são objetos de função sem um nome
+- *lambdas* podem ter os mesmos argumentos que uma função regular:
 `lambda arg, *args, named=val, **kwargs: ret`
--   lambdas must be one-liners and do not support annotations
--   'syntactic sugar' to pass short functions to other functions.
+- *lambdas* deve ter uma linha e não suportar anotações
+- 'açucar sintático' para passar funções curtas para outras funções.
 
 --
 
-### Higher Order Functions
--   The most common are `map` and `filter`
--   `map(f, seq)` returns an iterator containing each element of `seq` but with `f` applied
--   `filter(f, seq)` returns an iterator of the elements of seq where `bool(f(seq[i]))` is `True`
-
-
---
-
-### Functions as Keyword Args
-
--   Many functions will accept another function as a kwarg `sorted(seq, key=f)`
--   `sorted` will call `f` on the elements to determine order
--   The elements in the resulting list will be the same objects in seq
--   Have the key return a tuple to sort multiple fields
--   `min(seq, key=f)` and `max(seq, key=f)` behave similarly
--   This is a good spot for lambda
+### Funções de Alta Ordem
+- O mais comum são `map` e `filter`
+- `map(f, seq)` retorna um iterador contendo cada elemento de `seq` mas com `f` aplicado
+-   `filter(f, seq)` retorna um interador de elementos de seq aonde `bool(f(seq[i]))` é `True`
 
 --
 
-### Partial Application
+### Funções como palavra-chave Args
+
+- Várias funções devem aceitar outra função como um kwargs `sorted(seq, key=f)`
+- `sorted` deve chamar `f` do elemento para ordem determinada
+- Tendo uma chave, reotrna uma tupla para classificar múltiplos campos
+- `min(seq, key=f)` e `max(seq, key=f)` possui comportamento similar
+- Isso é um bom local para lambda
+
+--
+
+### Aplicativo parcial
 
     from functools import partial
     def add(x, y):
@@ -340,26 +340,26 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
 
     add_3 = partial(add, 3)
 
--   Partial application creates a new function by supplying an existing function with some of its arguments
+- Aplicativo parcial cria uma nova função fornecendo uma função existente com alguns dos seus argumentos
 
 ---
 
-##### advanced
-# Decorators
+##### avançado
+# Decoradores
 <!-- .slide: data-background="img/decorators.jpg" -->
 
 --
 
-### Decorators
+### Decoradores
 
--   Decorators are transformations on functions
--   A function that takes in a function and returns a modified function
+- Decoradores são transformações em funções
+- Uma função que recebe uma função e retorna outra função modificada
 
         @dec
         def func(arg1, arg2, ...):
             pass
 
--   Is equivalent to:
+- É equivalente para:
 
         def func(arg1, arg2, ...):
             pass
@@ -368,29 +368,29 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
 
 --
 
-### Decorator Arguments
+### Argumentos em decoradores
 
--   A decorator can take arguments
+- Um decorador pode ter argumentos
 
         @decmaker(argA, argB, ...)
         def func(arg1, arg2, ...):
             pass
 
--   Is equivalent to:
+- É equivalente para:
 
         def func(arg1, arg2, ...):
             pass
         func = decmaker(argA, argB, ...)(func)
 
 --
-### Decorator example
+### Exemplo de decorador
 
     import urllib
     from functools import lru_cache
 
     @lru_cache(maxsize=32)
     def get_pep(num):
-        'Retrieve text of a Python Enhancement Proposal'
+        'Recupera texto de um Python Enhancement Proposal'
         resource = 'http://www.python.org/dev/peps/pep-{:04d}'.format(num)
         try:
             with urllib.request.urlopen(resource) as s:
@@ -400,7 +400,7 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
 
 --
 
-### Multiple Decorators
+### Múltiplos Decoradores
 
     @dec1
     @dec2
@@ -408,7 +408,7 @@ assert person_details(name='Mike', age=28) == 'Mike is 28 years old'
         pass
 
 
--   Is equivalent to:
+- É equivalente para:
 
         def func(arg1, arg2, ...):
             pass
