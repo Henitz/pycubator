@@ -1,5 +1,5 @@
 
-# The Standard Library
+# A Biblioteca Padrão
 
 ---
 
@@ -7,7 +7,7 @@
 
 --
 
--   `time.time` return the time in seconds since the epoch as a floating point number.
+- `time.time` returna o tempo em segundos desde a época como um numéro de ponto flutuante.
 
         import time
         t0 = time.time()
@@ -16,21 +16,21 @@
         t1 = time.time()
         print(t1 - t0)
 
-        # output:
+        # saida:
         1.1572110652923584
 
 --
 
--   `time.sleep` Suspend execution for the given number of seconds.
+- `time.sleep` suspende execução para determinado número de segundos.
 
         import time
-        print('Processing, please wait, ...')
+        print('Processando, por favor aguarde ...')
         time.sleep(2)
-        print('Done.')
+        print('Pronto.')
 
-        # output:
-        Processing, please wait, ...
-        Done.
+        # Saida:
+		Processando, por favor aguarde ...
+		Pronto.
 
 ---
 
@@ -39,12 +39,12 @@
 --
 ### Logging
 
--   In large and long running programs we need more sophisticated printing.
--   The logging package enables us to easily log the current state and timestamp of our program
+- Em programas grandes e de longa execução, nós precisamos de impressões mais sofisticadas.
+- O pacote *logging* habilita para facilmente efetuar log do estado corrente e o tempo exato no seu programa
 
 --
 
--   Basic usage:
+- Uso básico:
 
         logging.debug('Alltems operational')
         logging.info('Airspeed knots')
@@ -52,50 +52,50 @@
         logging.error('Nol. Trying to glide.')
         logging.critical('Glide attempt failed. About to crash.')
 
-        # output:
+        # Saida:
         WARNING:root:Lowfuel
         ERROR:root:Nol. Trying to glide.
         CRITICAL:root:Glide attempt failed. About to crash.
 
--   Why can't we see the `debug` and `warning` messages?
+- Porque não podemos ver as mensagens `debug` e `warning`?
 
 --
 
--   We can determine the varbosity of the log with `setLevel`
+- Nós podemos determinar a verbosidade do log com `setLevel`
 
         logging.root.setLevel(logging.DEBUG)
         logging.debug('Alltems operational')
         logging.info('Airspeed knots')
 
-        # output
+        # Saida
         DEBUG:root:Alltems operational
         INFO:root:Airspeed knots
 
 --
 
--   With `basicConfig` we can create customisations that fits our needs.
--   For example make our logs more informative:
+- Com `basicConfig` nós podemos criar customizações para suas necessidades.
+- Para exemplo vamos criar um log mais informativo:
 
         logging.basicConfig(format='[%(levelname)s %(asctime)s %(module)s:%(lineno)d]  %(message)s',
                             level=logging.DEBUG)
         logging.debug("you'll see a lot more information now...")
 
-        # output
+        # Saida
         [DEBUG 2015-07-14 22:59:59,160 <ipython-input-60-8bd2b8d57226>:5]  you'll see a lot more information now...
 
 --
 
--   Or logging to a file:
+- Ou registrar os logs em um arquivo:
 
         logging.basicConfig(filename='example.log',level=logging.DEBUG)
         logging.debug('This message should go to the log file')
 
 --
 
--   Resources:
-    -   [Logging module docs](https://docs.python.org/3.5/library/logging.html)
-    -   [Logging howto](https://docs.python.org/3.5/howto/logging.html)
-    -   [Become a Logging Expert in 30 Minutes](https://youtu.be/24_4WWkSmNo), Gavin M. Roy, PyCon 2013
+- Recursos:
+	-   [Documentação do módulo logging](https://docs.python.org/3.5/library/logging.html)
+    -   [Como usar logging](https://docs.python.org/3.5/howto/logging.html)
+    -   [Tornando um expert em logging por 30 minutos](https://youtu.be/24_4WWkSmNo), Gavin M. Roy, PyCon 2013
 
 ---
 
@@ -103,21 +103,21 @@
 
 --
 ### OS
--   `os.listdir` return a list containing the names of the entries in the directory given by path:
+- `os.listdir` retorna uma lista contendo os nomes das entradas em um diretório dado um caminho:
 
         import os
 
         for filename in os.listdir('.'):
             print(filename)
 
-        # output
+        # saida
         The-standard-library.ipynb
         example.log
         unit-tests.ipynb
 
 --
 
--   `os.path.join` concatenate paths (according to OS):
+- `os.path.join` contatena caminhos (de acordo com o OS):
 
         import os
 
@@ -127,44 +127,44 @@
         # output
         '/home/user/Downloads'
 
--   `os.path.splitext` splits the file into root, extension:
+- `os.path.splitext` separa o arquivo dentro da raiz, da extensão:
 
         os.path.splitext('/home/noam/Downloads/xom.csv')
 
-        # output
+        # saida
         ('/home/noam/Downloads/xom', '.csv')
 
 --
 
--   `os.path.getsize`
+- `os.path.getsize` retorna o tamanho do arquivo em bytes
 
         os.path.getsize('The-standard-library.ipynb')
 
-        # output
+        # saida
         8440
 
 
 
--   `os.path.isdir`
+- `os.path.isdir` verifica se o caminho passado é um diretório
 
         os.path.isdir('The-standard-library.ipynb')
 
-        # output
+        # saida
         False
 
 ---
 
-# Sys and argparse
+# Sys e argparse
 
 --
 ### Sys
-- `sys.argv[0]` contains file name
-- `sys.argv[1:]` contains arguments (if any)
+- `sys.argv[0]` contêm o nome do arquivo
+- `sys.argv[1:]` contêm argumentos (se tiver)
 
 --
 
-#### Example
--   test.py:
+#### Exemplo
+- Arquivo test.py:
 
         import sys
 
@@ -176,7 +176,7 @@
         if __name__ == '__main__':
             print(main(sys.argv))
 
--   cmdline:
+- Linha de comando:
 
         $ python test.py 5 10
         15
@@ -184,14 +184,14 @@
 --
 
 ### argparse
--   A standard library solution for parsing script arguments
--   Generates help messages
--   Robust and clear
--   learn more at [argparse tutorial](https://docs.python.org/3/howto/argparse.html)
+- Uma biblioteca padrão que soluciona o parsing de argumentos de scripts
+- Gera mensagem de ajuda
+- Robusto e limpo
+- Aprenda mais em [argparse tutorial](https://docs.python.org/3/howto/argparse.html)
 --
 
-### argparse example
--   test.py:
+### Exemplo argparse
+- Arquivo test.py:
 
         import argparse
         parser = argparse.ArgumentParser()
@@ -201,14 +201,14 @@
         args = parser.parse_args()
         print(args.square**2)
 
--   cmdline:
+- Linha de comando:
 
         $ python3 test.py 4
         16
 
 --
 
-###### Exercises
+###### Exercícios
 
 [The standard library](http://lms.10x.org.il/item/144/)
 
@@ -218,12 +218,12 @@
 
 --
 
-The subprocess module provides a consistent interface to creating and working with additional
-processes.
+O módulo *subprocess* provêm uma interface consistente para criar e trabalhar com processos
+adicionais.
 
 --
-### Simple call
--   To run an external command without interacting with it, use the `call()` function.
+### Chamada simples
+- Para rodar um comando externo sem interagir com ele, use a função `call()`.
 
         import subprocess
 
@@ -231,24 +231,24 @@ processes.
 
 --
 
--   The return value from `call()` is the exit code of the program.
--   The caller is responsible for interpreting it to detect errors.
+- O valor retornado de `call()` é o código de saída do programa.
+- O chamador é responsável por interpretar isso para detectar erros.
 
 --
-### Error handeling
+### Manipulando erros
 
--   The `check_call()` function works like `call()` except that the exit code is checked,
-    and if it indicates an error happened then a `CalledProcessError` exception is raised.
+- A função `check_call()` trabalha como `call()`, exceto que o código de saída é checado,
+e se isto indicar que um erro aconteceu, então uma exceção `CalledProcessError` é levantado.
 
         import subprocess
 
         subprocess.check_call(['false'])
 
 --
-### Capturing Output
--   The standard input and output channels for the process started by `call()` are bound to
-    the parent’s input and output.
--   Use `check_output()` to capture the output for later processing.
+### Capturando saída
+- Os canais de entrada e saída padrão, para o processo iniciado por `call()` são limitados
+para a entrada e saída pai.
+- Use `check_output()` para capturar a saída processar tardiamente.
 
         import subprocess
 
@@ -262,8 +262,8 @@ processes.
 
 --
 
--   The simplest way to use a Thread is to instantiate it with a target function and call `start()`
-    to let it begin working.
+- Um modo simples de usar uma Thread é instanciar isto com uma função alvo e chamar `start()`
+para deixá-lo começar a trabalhar.
 
         import threading
 
@@ -278,8 +278,8 @@ processes.
 
 --
 
--   Many time we run threads and wish that the main process will collect their result, to do so
-    we use the `join` method
+- Várias vezes nos executamos threads and desejamos que o processo principal possa coletar os
+resultados, para fazer isso, nós usamos o método `join`
 
         import threading, random, time
 
@@ -301,6 +301,6 @@ processes.
 
 ---
 
-### Reference
--   [pymotw](https://pymotw.com/2/) - Python module of the week
--   Standard Library [documentation](https://docs.python.org/3/library)
+### Referência
+-   [pymotw](https://pymotw.com/3/) - Módulo Python por semana
+-   [Documentação do Standard Library](https://docs.python.org/3/library)
