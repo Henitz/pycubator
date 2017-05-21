@@ -278,64 +278,61 @@ mais próximo.
 
 ### Background (1)
 
--   Functional programming started with lambda(&Lambda;) calculus
--   Alternative to Turning machines for exploring computability
--   Expresses programs as functions operating on other functions
--   Functional programming attempts to make it easier to reason about program behavior
--   No data states allows for easier multi threaded programing
+- A Programação Funcional começou com cálculo lambda
+- Alternativa para máquinas Turning para computabilidade
+- Programas expressam como operações de funções em outras funções
+- Programação funcional tente facilitar o raciocínio sobre o comportamento do programa
+- Nenhum estado de dados permite a programação multi-thread de forma fácil
 
 --
 
 ### Background (2)
--   Python data is mutable and allows side-effects
--   Has some functional concepts
--   Not an ideal functional programming environment
+- Dados em Python são mutáveis é permitem efeitos colaterais
+- Possui alguns conceitos funcionais
+- Não é um ambiente ideal de programação funcional
 
 --
 
-### First Class Functions
--   A **higher order function** is a function that does at least one of the following:
-    - Takes a function as one of its inputs
-    - Outputs a function
-
--   You can use functions anywhere you would use a value
--   Functions are immutable so you can use them as dictionary keys
--   Functions can be the return value of another function
+### Funções de primeira classe
+- Uma **função de primeira classe** é uma função que faz pelo menos uma das seguintes:
+	- Toma uma função como um de suas entradas
+	- Executa uma função
+- Você pode usar funções em qualquer lugar, que você usaria um valor
+- Funções são imutáveis, então você pode usar eles como chaves de dicionários
+- Funções podem ser valor de outra função
 
 --
 
-### &lambda; (lambda) Functions
+### Funções &lambda; (lambda)
 
     f = lambda x: x + 1
 
--   Anonymous functions are function objects without a name
--   lambdas can have the same arguments as regular functions:
+- Funções anônimas são objetos de função sem um nome
+- *lambdas* podem ter os mesmos argumentos que uma função regular:
 `lambda arg, *args, named=val, **kwargs: ret`
--   lambdas must be one-liners and do not support annotations
--   'syntactic sugar' to pass short functions to other functions.
+- *lambdas* deve ter uma linha e não suportar anotações
+- 'açucar sintático' para passar funções curtas para outras funções.
 
 --
 
-### Higher Order Functions
--   The most common are `map` and `filter`
--   `map(f, seq)` returns an iterator containing each element of `seq` but with `f` applied
--   `filter(f, seq)` returns an iterator of the elements of seq where `bool(f(seq[i]))` is `True`
-
-
---
-
-### Functions as Keyword Args
-
--   Many functions will accept another function as a kwarg `sorted(seq, key=f)`
--   `sorted` will call `f` on the elements to determine order
--   The elements in the resulting list will be the same objects in seq
--   Have the key return a tuple to sort multiple fields
--   `min(seq, key=f)` and `max(seq, key=f)` behave similarly
--   This is a good spot for lambda
+### Funções de Alta Ordem
+- O mais comum são `map` e `filter`
+- `map(f, seq)` retorna um iterador contendo cada elemento de `seq` mas com `f` aplicado
+-   `filter(f, seq)` retorna um interador de elementos de seq aonde `bool(f(seq[i]))` é `True`
 
 --
 
-### Partial Application
+### Funções como palavra-chave Args
+
+- Várias funções devem aceitar outra função como um kwargs `sorted(seq, key=f)`
+- `sorted` deve chamar `f` do elemento para ordem determinada
+- Tendo uma chave, reotrna uma tupla para classificar múltiplos campos
+- `min(seq, key=f)` e `max(seq, key=f)` possui comportamento similar
+- Isso é um bom local para lambda
+
+--
+
+### Aplicativo parcial
 
     from functools import partial
     def add(x, y):
@@ -343,26 +340,26 @@ mais próximo.
 
     add_3 = partial(add, 3)
 
--   Partial application creates a new function by supplying an existing function with some of its arguments
+- Aplicativo parcial cria uma nova função fornecendo uma função existente com alguns dos seus argumentos
 
 ---
 
-##### advanced
-# Decorators
+##### avançado
+# Decoradores
 <!-- .slide: data-background="img/decorators.jpg" -->
 
 --
 
-### Decorators
+### Decoradores
 
--   Decorators are transformations on functions
--   A function that takes in a function and returns a modified function
+- Decoradores são transformações em funções
+- Uma função que recebe uma função e retorna outra função modificada
 
         @dec
         def func(arg1, arg2, ...):
             pass
 
--   Is equivalent to:
+- É equivalente para:
 
         def func(arg1, arg2, ...):
             pass
@@ -371,29 +368,29 @@ mais próximo.
 
 --
 
-### Decorator Arguments
+### Argumentos em decoradores
 
--   A decorator can take arguments
+- Um decorador pode ter argumentos
 
         @decmaker(argA, argB, ...)
         def func(arg1, arg2, ...):
             pass
 
--   Is equivalent to:
+- É equivalente para:
 
         def func(arg1, arg2, ...):
             pass
         func = decmaker(argA, argB, ...)(func)
 
 --
-### Decorator example
+### Exemplo de decorador
 
     import urllib
     from functools import lru_cache
 
     @lru_cache(maxsize=32)
     def get_pep(num):
-        'Retrieve text of a Python Enhancement Proposal'
+        'Recupera texto de um Python Enhancement Proposal'
         resource = 'http://www.python.org/dev/peps/pep-{:04d}'.format(num)
         try:
             with urllib.request.urlopen(resource) as s:
@@ -403,7 +400,7 @@ mais próximo.
 
 --
 
-### Multiple Decorators
+### Múltiplos Decoradores
 
     @dec1
     @dec2
@@ -411,7 +408,7 @@ mais próximo.
         pass
 
 
--   Is equivalent to:
+- É equivalente para:
 
         def func(arg1, arg2, ...):
             pass
