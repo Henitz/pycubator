@@ -1,18 +1,18 @@
-# Exceptions
+# Exceções
 <!-- .slide: data-background="img/puzzles.jpg" -->
 
 ---
 
-# Catching Exceptions 
+# Capturando Exceções
 
 --
 
-### Python handles all errors with exceptions.
+### Python trata todos os erros com exceções
 
-An exception is a signal that an error or other unusual condition has occurred.
+Uma exceção é um sinal de que um erro ou outra condição não usual ocorreu.
 
 --
-### Catching an exception
+### Capturando uma exceção
 
     try:
         execute_some_code()
@@ -21,7 +21,7 @@ An exception is a signal that an error or other unusual condition has occurred.
 
 --
 
-### Catching all exceptions
+### Capturando todas as exceções
 
     try:
         execute_some_code()
@@ -31,25 +31,25 @@ An exception is a signal that an error or other unusual condition has occurred.
 
 --
 
--   Don't do it.
--   Catching too broad exceptions is potentially dangerous.
--   Among others, this "wildcard" handler will catch:
-    -   system exit triggers
-    -   memory errors
-    -   typos
-    -   anything else you might not have considered
+- Não faça isso.
+- Capturando exceções muito amplas é potencialmente perigoso.
+- Entre outros, esse tratamento "coringa" deve disparar:
+	- Disparos de saída do sistema
+	- Erros de memória
+	- Typos
+	- Qualquer coisa que você pode não ter considerado
 
 --
-###### Exercise
-### Divide by zero
+###### Exercício
+### Divisão por zero
 
--   Try to divide `1/0`. What happens?
--   Catch the exception and tell the user he cannot divide by zero.
+- Tente dividir `'1/0'`. O que acontece?
+- Capture a exceção e diga ao usuário que ele não pode dividir por zero.
 
 --
-### Catching multiple exceptions
+### Capturando múltiplas exceções
 
-Handling them all the same way
+Lidando com todos eles do mesmo jeito
 
     try:
         execute_some_code()
@@ -59,7 +59,7 @@ Handling them all the same way
 
 --
 
-Handling them separately
+Lidando com eles separadamente
 
     try:
         execute_some_code()
@@ -70,38 +70,39 @@ Handling them separately
 
 ---
 
-# LBYL vs. EAFP
+# PDAA vs. MFPPP
 
 --
-### LBYL
+### PDAA
 
-Look Before You Leap
+Pense duas vezes antes de agir
 
-> \[...\] explicitly tests for pre-conditions before making calls or
-lookups. This style contrasts with the EAFP approach and is
-characterized by the presence of many if statements.
-
---
-
-### EAFP
-Easier to Ask for Forgiveness than Permission
-> \[...\] assumes the existence of valid keys or attributes and catches
-exceptions if the assumption proves false. This clean and fast style
-is characterized by the presence of many try and except
-statements. The technique contrasts with the LBYL style common
-to many other languages such as C.
+> \[...\] testes explícitos para pré-condições antes de fazer chamadas ou
+pesquisas. Esse estilo contrasta com a abordagem MFPPP e é caracterizado
+pela presença de várias declarações if.
 
 --
 
-### Examples
--   LBYL:
+### MFPPP
+Mais fácil pedir perdão do que permissão
+
+> \[...\] assuma a existência de chaves ou atributos e capturas
+de exceções, se a a suposição provar falsa. Essa limpeza e rápido estilo
+é caracterizado pela presença de várias declarações *try* e *except*.
+A técnica contrasta com o estilo padrão PDAA de várias outras
+linguagens como o C.
+
+--
+
+### Exemplos
+-   PDAA:
 
         import os
         if os.path.exists('tmp.txt'):
             with open('tmp.txt'):
                 pass
 
--   EAFP:
+-   MFPPP:
 
         try:
             with open('tmp.txt'):
@@ -111,8 +112,12 @@ to many other languages such as C.
 
 --
 
-### When to use
->"All errors are exceptions, but not all exceptions are errors"
+### Quando usar
+>"Todos os erros são exceções, mas nem todas exceções são erros"
+
+Use tratamento de exceções para recuperação de forma graciosa de erros de aplicação.
+Mas: É perfeitamente permitido, e as vezes necessário, para utilizar
+tratamento de exceções para fluxo de controle geral da aplicação. *EOFError*, por exemplo.
 
 Use exception handling to gracefully recover from application errors.
 But: It's perfectly allowed, and sometimes necessary, to utilize
@@ -120,22 +125,22 @@ exception handling for general application control flow. EOFError, for example.
 
 ---
 
-# Raising, Accessing and Propagating 
+# Levantando, acessando e propagando
 
 --
 
-### Raising exceptions
+### Levantando exceções
 
-Exceptions can be raised using `raise <exception>` with optional arguments.
+Exceções podem ser levantadas usando `raise <exception>` com argumentos opcionais.
 
     raise RuntimeError()
     raise RuntimeError("error message")
 
 --
 
-### Accessing the exception
+### Acessando uma exceção
 
-Use "as" to access the exception object
+Use *as* para acessar o objeto do tipo de exceção
 
     try:
         raise RuntimeError("o hai")
@@ -145,10 +150,11 @@ Use "as" to access the exception object
 
 --
 
-### Propagating exceptions
+### Propagando exceções
 
-Try-blocks can be nested;
-All exceptions propagate to the top-level "root exception handler" if uncaught.
+Blocos *try* podem ser aninhados;
+Todas as exceções se propagam para o "manipulador de exceção raiz" de nível superior,
+se não são detectadas.
 
     try:
         try:
@@ -158,15 +164,14 @@ All exceptions propagate to the top-level "root exception handler" if uncaught.
     except Exception:
         print('Outer')
 
-
-The (default) root exception handler terminates the Python process.
+O manipulador de exceção raiz (padrão) termina o processo Python.
 
 --
 
-### Propagating exceptions
+### Propagando exceções
 
-Propagation can be forced by using raise without arguments,
-this re-raises the most recent exception.
+Propagação pode ser forçado usando *raise* sem argumentos.
+Isso aumenta a exceção mais recente.
 
     try:
         try:
@@ -178,25 +183,25 @@ this re-raises the most recent exception.
         print('Outer')
 
 
-This is useful for e.g. exception logging.
+Isso é útil para por exemplo, logging de exceção.
 
 --
-### Practice
+### Prática
 
--   Read this [numbers.txt](content/exercises/numbers.txt) file.
--   Add the integers in the file together, and print the sum at the end.
--   You need to except the following exceptions and let the user know the problem:
-    - `IOError`: if there is a problem opening the file.
-    - `ValueError`: if the line read is not an integer.
-    - All other types: if any other exception arise, catch it and say 'unexpected error occurred'
+- Leia o arquivo [numeros.txt](content/exercises/number.txt).
+- Adicione os inteiros no arquivo juntos, e imprima a suma até o final.
+- Você precisa excluir as seguintes exceções e informat ao usuário sobre o problema:
+	- `IOError`: se isso é um problema ao abrir o arquivo.
+	- `ValueError`: se a linha lida não é um inteiro.
+	- Todos os outros tipos: se qualquer outra exceção levantar, captura ele e diga 'erro inesperado ocorrido'
 
 ---
 
-# Finally and Else
+# Finally e Else
 
 --
 ### Finally
-Code in the `finally` block will always be executed (unless Python crashes completely).
+O código no bloco `finally`, deve sempre ser executado (a não ser que o Python quebre completamente).
 
     try:
         open_file()
@@ -208,7 +213,7 @@ Code in the `finally` block will always be executed (unless Python crashes compl
 --
 
 ### Else
-Code in the `else` block will be executed when no exception is raised
+Código no bloco `else` deve ser executado quando nenhuma exceção foi levantada
 
     try:
         open_file()
@@ -219,41 +224,41 @@ Code in the `else` block will be executed when no exception is raised
 
 ---
 
-# Writing exceptions
+# Escrevendo exceções
 
 --
-### Inheritance
--   Exceptions are matched by superclass relationships.
-    -   RuntimeError
-    -   StandardError
-    -   Exception
-    -   BaseException
-
---
-
-### Exception matching
-- exception hierarchies can be designed.
-- For example, `OverflowError`, `ZeroDivisionError` and `FloatingPointError`
-are all subclasses of `ArithmeticError`.
-- Just write a handler for `ArithmeticError` to catch any of them.
+### Herança
+- Exceções são combinados por relações de superclasses.
+	- RuntimeError
+	- StandardError
+	- Exception
+	- BaseException
 
 --
 
-### Writing your own
-It's as simple as
+### Combinações de exceções
+- Hierarquia de exceções pode ser projetada.
+- Por exemplo, `OverflowError`, `ZeroDivisionError` e `FloatingPointError`
+são todas subclasses de `ArithmeticError`.
+- Somente escreva um manipulador de `ArithmeticError` para capturar qualquer um deles.
+
+--
+
+### Escreva o seu próprio
+Isso é simples como
 
     class MyException(Exception):
         pass
 
 --
-###### Exercise
-### Write your own exception!
--   Create a function called `guess_my_name` that:
-    -   Takes user input.
-    -   Checks if the user guessed your name correctly
-    -   Throws an exception `NotMyName` if not.
+###### Exercício
+### Escreva sua própria exceção!
+- Crie uma função chamada de `guess_my_name` que:
+	- Pegue uma entrada de usuário
+	- Cheque se o usuário inseriu seu nome corretamente
+	- Dispare uma exceção `NotMyName` se não inseriu corretamente.
 
--   Call that function:
-    -   In a while loop, call that function,
-    -   if `NotMyName` exception is caught stay in the loop.
-    -   else exit and print 'success!'
+- Chame a função:
+	- Em um loop while, chame a função
+	- se a exceção `NotMyName` é pego estando no loop.
+	- senão saia e imprima 'sucesso!'
