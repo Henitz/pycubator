@@ -119,10 +119,6 @@ Use tratamento de exceções para recuperação de forma graciosa de erros de ap
 Mas: É perfeitamente permitido, e as vezes necessário, para utilizar
 tratamento de exceções para fluxo de controle geral da aplicação. *EOFError*, por exemplo.
 
-Use exception handling to gracefully recover from application errors.
-But: It's perfectly allowed, and sometimes necessary, to utilize
-exception handling for general application control flow. EOFError, for example.
-
 ---
 
 # Levantando, acessando e propagando

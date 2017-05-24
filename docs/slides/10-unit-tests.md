@@ -2,48 +2,47 @@
 ### Pycubator
 
 --
-### What for?
+### Para que fazer Testes?
 
--   Fixing defects early costs less than fixing them late.
--   Defects removed in Unit Testing cost around 10 times less than defects removed in Functional
-    verification.
--   And around 40 times less than defects removed by Systems or Integration testing.
-
---
-
-### What is Unit Testing?
-
-
--   A unit test isolates a part of the program
--   Tests a single behaviour
--   Clearly identifies any reason for failure
--   Documents expected behaviour
--   Runs quickly
+-   Encontrar defeitos cedo custa menos do que corrigi-los tarde.
+-   Os defeitos removidos no teste unitário custam cerca de 10 vezes menos do que os defeitos removidos na  verificação funcional.
+-   E cerca de 40 vezes menos do que defeitos removidos por sistemas ou testes de integração.
 
 --
 
-### A test is not a unit test if
+### O que é teste Unitário ?
 
-*   It talks to the database
-*   It communicates across the network
-*   It touches the file system
-*   It can't run at the same time as other unit tests
-*   You have to do special things to your environment (such as editing config files) to run it
+
+-   Um teste unitário isola uma parte do programa
+-   Testa um único comportamento
+-   Identifica claramente qualquer motivo de falha
+-   Comportamento esperado dos documentos
+-   Funciona rapidamente
+
+--
+
+### Um teste não é um teste unitário se:
+
+*   Ele fala com o banco de dados
+*   Ele se comunica através da rede
+*   Toca o sistema de arquivos
+*   Ele não pode ser executado ao mesmo tempo que outros testes unitários
+*   Você tem que fazer coisas especiais para o seu ambiente (como a edição de arquivos de configuração) para executá-lo
 
 Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thread=126923) (2005)
 
 ---
 
-# Unit test demonstration
+# Demonstração de teste unitário
 
 --
 
-### Interleave
+### Intercalar
 
--   Lets write a function to interleave two lists
--   It will be okay if one list is longer than the other
--   Before we start writing the code, we should know what the function should produce for all types
-    of inputs:
+-   Vamos escrever uma função para intercalar duas listas
+-   Será bom se uma lista for mais longa do que a outra
+-   Antes de começar a escrever o código, devemos saber o que a função deve produzir para todos os tipos
+    de entradas:
 
         interleave([], []) # -> []
         interleave([1,5,3], ["hello"]) # -> [1,"hello",5,3]
@@ -51,7 +50,7 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 --
 
--   Write the test first, `interleave_test.py`:
+-   Escreva o teste primeiro, `interleave_test.py`:
 
         from interleave import interleave
         import unittest
@@ -73,14 +72,14 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 --
 
--   Write a stub, `interleave.py`:
+-   Escreva um stub, `interleave.py`:
 
         def interleave(a, b):
             return None
 
 --
 
--   Run the test
+-   Execute o teste
 
         $ python interleave_test.py
         F
@@ -99,15 +98,15 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 --
 
--   Now write the code
+-   Agora escreva o código
 
         def interleave(a, b):
-            """Return the interleaving of two sequences as a list."""
+            """Retorna a intercalação de duas seqüências como uma lista."""
             return [y for x in izip_longest(a, b) for y in x if y is not None]
 
 --
 
--   Test again
+-   Teste novamente
 
         $ python interleave_test.py
         E
@@ -127,17 +126,17 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
         FAILED (errors=1)
 --
 
--   Fix the code
+-   Corrigir o código
 
         from itertools import izip_longest
 
         def interleave(a, b):
-            """Return the interleaving of two sequences as a list."""
+            """Retorna a intercalação de duas seqüências como uma lista."""
             return [y for x in izip_longest(a, b) for y in x if y is not None]
 
 --
 
--   Rerun the test
+-   Repetir o teste
 
         $ python interleave_test.py
         .
@@ -147,14 +146,14 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
         OK
 
 ---
-# Resources and exercise
+# Recursos e exercício
 
 --
-### Resources
+### Recursos
 -   Ray Toal, [unittest in 5 minutes](http://www.slideshare.net/raytoal/unittest-in-5-minutes)
 -   Python stdlib [documentation](https://docs.python.org/3/library/unittest.html#module-unittest)
 
 
 --
-###### Exercise
+###### exercício
 [Unit testing](http://lms.10x.org.il/item/47/)
