@@ -44,19 +44,19 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 -   Antes de começar a escrever o código, devemos saber o que a função deve produzir para todos os tipos
     de entradas:
 
-        intercalar([], []) # -> []
-        intercalar([1,5,3], ["hello"]) # -> [1,"hello",5,3]
-        intercalar([True], [[], 8]) # -> [True, [], 8]
+        interleave([], []) # -> []
+        interleave([1,5,3], ["hello"]) # -> [1,"hello",5,3]
+        interleave([True], [[], 8]) # -> [True, [], 8]
 
 --
 
--   Escreva o teste primeiro, `intercalar_test.py`:
+-   Escreva o teste primeiro, `interleave_test.py`:
 
-        from intercalar import intercalar
+        from interleave import interleave
         import unittest
 
         class TestGettingStartedFunctions(unittest.TestCase):
-            def test_intercalar(self):
+            def test_interleave(self):
                 cases = [
                     ([], [], []),
                     ([1], [9], [1, 9]),
@@ -64,7 +64,7 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
                 ]
 
                 for a, b, expected in cases:
-                    self.assertEqual(intercalar(a, b), expected)
+                    self.assertEqual(interleave(a, b), expected)
 
         if __name__ == '__main__':
             unittest.main()
@@ -72,23 +72,23 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 --
 
--   Escreva um stub, `intercalar.py`:
+-   Escreva um stub, `interleave.py`:
 
-        def intercalar(a, b):
+        def interleave(a, b):
             return None
 
 --
 
 -   Execute o teste
 
-        $ python intercalar_test.py
+        $ python interleave_test.py
         F
         ======================================================================
-        FAIL: test_intercalar (__main__.TestGettingStartedFunctions)
+        FAIL: test_interleave (__main__.TestGettingStartedFunctions)
         ----------------------------------------------------------------------
         Traceback (most recent call last):
-          File "intercalartest.py", line 15, in test_intercalar
-            self.assertEqual(intercalar(a, b), expected)
+          File "interleavetest.py", line 15, in test_interleave
+            self.assertEqual(interleave(a, b), expected)
         AssertionError: None != []
 
         ----------------------------------------------------------------------
@@ -100,7 +100,7 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 -   Agora escreva o código
 
-        def intercalar(a, b):
+        def interleave(a, b):
             """Retorna a intercalação de duas seqüências como uma lista."""
             return [y for x in izip_longest(a, b) for y in x if y is not None]
 
@@ -108,15 +108,15 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 -   Teste novamente
 
-        $ python intercalar_test.py
+        $ python interleave_test.py
         E
         ======================================================================
-        ERROR: test_intercalar (__main__.TestGettingStartedFunctions)
+        ERROR: test_interleave (__main__.TestGettingStartedFunctions)
         ----------------------------------------------------------------------
         Traceback (most recent call last):
-          File "intercalartest.py", line 15, in test_intercalar
-            self.assertEqual(intercalar(a, b), expected)
-          File "/Users/raytoal/scratch/intercalar.py", line 3, in intercalar
+          File "interleavetest.py", line 15, in test_interleave
+            self.assertEqual(interleave(a, b), expected)
+          File "/Users/raytoal/scratch/interleave.py", line 3, in interleave
             return [y for x in izip_longest(a, b) for y in x if y is not None]
         NameError: global name izip_longest is not defined
 
@@ -130,7 +130,7 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
         from itertools import izip_longest
 
-        def intercalar(a, b):
+        def interleave(a, b):
             """Retorna a intercalação de duas seqüências como uma lista."""
             return [y for x in izip_longest(a, b) for y in x if y is not None]
 
@@ -138,7 +138,7 @@ Source: [Michael Feathers' blog](http://www.artima.com/weblogs/viewpost.jsp?thre
 
 -   Repetir o teste
 
-        $ python intercalar_test.py
+        $ python interleave_test.py
         .
         -------------------------------------------------------------
         Ran 1 test in 0.000s
