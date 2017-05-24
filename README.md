@@ -1,6 +1,6 @@
 # Pycubator
 
-Esse projeto é uma tradução em português do [pycubator.com](pycubator.com), para ser usado como material para mini-cursos e workshops sobre o básico do Python.
+Esse projeto é uma tradução em português do [pycubator.com](http://pycubator.com/), para ser usado como material para mini-cursos e workshops sobre o básico do Python.
 
 Ele possui algumas alterações para tornar o conteúdo mais simples possível.
 
