@@ -184,7 +184,7 @@ Isso é útil para por exemplo, logging de exceção.
 --
 ### Prática
 
-- Leia o arquivo [numeros.txt](content/exercises/number.txt).
+- Leia o arquivo [numeros.txt](exercises/numbers.txt).
 - Adicione os inteiros no arquivo juntos, e imprima a suma até o final.
 - Você precisa excluir as seguintes exceções e informat ao usuário sobre o problema:
 	- `IOError`: se isso é um problema ao abrir o arquivo.
