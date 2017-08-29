@@ -63,7 +63,7 @@ Guido's, [king's day speech][speech]
 
 --
 
-* Bonito é melhor que feito
+* Bonito é melhor que feio
 * Explícito é melhor do que implícito
 * Simples é melhor do que complexo
 * Complexo é melhor do que complicado
